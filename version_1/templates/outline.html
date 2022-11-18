@@ -14,13 +14,17 @@
 
         <form id="myForm" method="post">
         {% csrf_token %}
-        <input type="text" name="username" class="form-control"
-                                      placeholder="Desired Username" />
+        
+        <textarea id="w3review" name="text" rows="4" cols="50">
+            Write some text here.
+        </textarea>
 
-                                    </form>
+        <input type="submit" value="Submit">
+        </form>
      
+        <h2>{{ htmltext }}</h2>
         
- 
-        
+       
+        <!-- <h1>{{answer}}</h1> -->
     </body>
 </html>
