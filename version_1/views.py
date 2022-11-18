@@ -96,3 +96,38 @@ def grammar_correction(request):
 
         
     return render(request, 'grammar.html')
+
+
+
+
+
+def text_summarizer(request):
+    """This function is to make a short summary of a text"""
+    
+    if request.method == 'POST':
+        
+        text = request.POST['text']  #The text we will write
+        summary_sentence = openai.Completion.create(
+        model="text-davinci-002",
+        
+        prompt= f"{text}+\n\nTl;dr",
+        temperature=0,
+        max_tokens=60,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0
+        )
+
+        #The context will return the grammatically correct sentence
+        text_summary= summary_sentence["choices"][0]["text"]
+        #By specifying the name of the context in the html, it will display the results.
+        
+        context = {           
+        "correctsentence": text_summary
+    }
+       
+        return render(request, 'summary.html', context)
+
+
+        
+    return render(request, 'summary.html')
