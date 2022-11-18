@@ -48,14 +48,51 @@ def outline(request):
         )
         
         text_response = response["choices"][0]["text"]
+
+        #The context will return the text response
+
+        #By specifying the name of the context in the html, it will display the results.
         
-        context = {
-           
+        context = {           
         "htmltext": text_response
     }
        
         return render(request, 'outline_results.html', context)
+        
+    return render(request, 'outline.html')
+
+
+
+
+
+
+def grammar_correction(request):
+    """This function is to correct any grammatical mistake in a sentence"""
+    
+    if request.method == 'POST':
+        
+        text = request.POST['text']  #The text we will write
+        grammar_sentence = openai.Completion.create(
+        model="text-davinci-002",
+        
+        prompt= f"Correct this to standard English:\n\n + {text}",
+        temperature=0,
+        max_tokens=60,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0
+        )
+
+        #The context will return the grammatically correct sentence
+        correct_sentence= grammar_sentence["choices"][0]["text"]
+        #By specifying the name of the context in the html, it will display the results.
+        
+        context = {           
+        "correctsentence": correct_sentence
+    }
+       
+        return render(request, 'grammar.html', context)
 
 
         
-    return render(request, 'outline.html')
+    return render(request, 'grammar.html')

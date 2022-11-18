@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,21 +9,19 @@
     </head>
     <body>
        
-        <h1>Hello there! This is to generate outline</h1>
+        <h1>This is to correct grammatical mistakes</h1>
 
         <form id="myForm" method="post">
         {% csrf_token %}
         
-        <textarea id="w3review" name="text" rows="4" cols="50">
-            Write some text here.
+        <textarea id="w3review" name="text" rows="2" cols="50">
+            Enter the sentence to correct
         </textarea>
 
         <input type="submit" value="Submit">
         </form>
      
-        <h2>{{ htmltext }}</h2>
-        
-       
-        <!-- <h1>{{answer}}</h1> -->
+        <h2>{{ correctsentence }}</h2>
+           
     </body>
 </html>
