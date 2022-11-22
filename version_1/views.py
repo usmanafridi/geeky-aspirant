@@ -9,12 +9,6 @@ openai.api_key = "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"
 
 
 
-
-
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the polls index.")
-
-
 def index(request):
     """This function is written so that I can test how to write post text and get it to the backend of our system"""
     
@@ -64,8 +58,6 @@ def outline(request):
 
 
 
-
-
 def grammar_correction(request):
     """This function is to correct any grammatical mistake in a sentence"""
     
@@ -107,23 +99,44 @@ def text_summarizer(request):
     if request.method == 'POST':
         
         text = request.POST['text']  #The text we will write
+        
+        ## Here, the summary will be made.
         summary_sentence = openai.Completion.create(
         model="text-davinci-002",
-        
         prompt= f"{text}+\n\nTl;dr",
         temperature=0,
-        max_tokens=60,
+        max_tokens=300,
         top_p=1.0,
         frequency_penalty=0.0,
         presence_penalty=0.0
         )
 
-        #The context will return the grammatically correct sentence
+        ## Here, the title will be generated
+        
+        title_of_summary = openai.Completion.create(
+        model="text-davinci-002",
+        prompt=f"Suggest a title for the following passage\n\n + {text}" ,
+        temperature=0,
+        max_tokens=300,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0
+        )
+        
+        
+        #return title
+        title= title_of_summary["choices"][0]["text"]
+        
+        #return summary
         text_summary= summary_sentence["choices"][0]["text"]
+        
         #By specifying the name of the context in the html, it will display the results.
         
+        
         context = {           
-        "correctsentence": text_summary
+        "correctsentence": text_summary,
+        "correcttitle": title,
+
     }
        
         return render(request, 'summary.html', context)

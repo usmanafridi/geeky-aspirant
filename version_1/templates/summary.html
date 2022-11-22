@@ -15,13 +15,25 @@
         {% csrf_token %}
         
         <textarea id="w3review" name="text" rows="2" cols="50">
-            Enter the sentence to correct
+            Enter..
         </textarea>
 
         <input type="submit" value="Submit">
         </form>
      
-        <h2>{{ correctsentence }}</h2>
-           
+        
+            {% if correcttitle %}
+        <h1>Title: {{correcttitle}}</h1>
+        
+            {% endif %}
+        
+        
+            {% if correctsentence %}
+        
+            <h2>Summary {{ correctsentence }}</h2>
+
+            {% endif %}
+        
+       
     </body>
 </html>
