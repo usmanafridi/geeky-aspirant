@@ -36,7 +36,7 @@ def outline(request):
     
     if request.method == 'POST':
 
-        text = request.POST['text']  #The text we will write
+        text = request.POST['text']  #The text we will write (Here the "text" is the name of the form in html )
 
         text_response = gpt3(text)
 
@@ -70,9 +70,6 @@ def grammar_correction(request):
     }
        
         return render(request, 'grammar.html', context)
-
-
-        
     return render(request, 'grammar.html')
 
 
@@ -83,40 +80,15 @@ def text_summarizer(request):
     if request.method == 'POST':
         
         text = request.POST['text']  #The text we will write
-        
-        ## Here, the summary will be made.
-        summary_sentence = openai.Completion.create(
-        model="text-davinci-002",
-        prompt= f"{text}+\n\nTl;dr",
-        temperature=0,
-        max_tokens=300,
-        top_p=1.0,
-        frequency_penalty=0.0,
-        presence_penalty=0.0
-        )
 
-        ## Here, the title will be generated
-        
-        title_of_summary = openai.Completion.create(
-        model="text-davinci-002",
-        prompt=f"Suggest a title for the following passage\n\n + {text}" ,
-        temperature=0,
-        max_tokens=300,
-        top_p=1.0,
-        frequency_penalty=0.0,
-        presence_penalty=0.0
-        )
-        
-        
+        ## Here, the title will be generated 
         #return title
-        title= title_of_summary["choices"][0]["text"]
+        title= gpt3(f"Suggest a title for the following passage\n\n + {text}")
         
         #return summary
-        text_summary= summary_sentence["choices"][0]["text"]
+        text_summary= gpt3(f"{text}+\n\nTl;dr",)
         
         #By specifying the name of the context in the html, it will display the results.
-        
-        
         context = {           
         "correctsentence": text_summary,
         "correcttitle": title,
@@ -140,10 +112,10 @@ def word_mean_sentence(request):
         ## Here, the title will be generated  
         
         #return title
-        word_meaning= gpt3(f"Write the meaning of {text} in 1. English and 2. Urdu.\n\n")
+        word_meaning= gpt3(f"Write the meaning of {text} in English\n\n")
         
         #return sentence
-        word_sentence= gpt3(f"Use {text} in a sentence",)
+        word_sentence= gpt3(f"Use {text} in a sentence")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
@@ -151,14 +123,13 @@ def word_mean_sentence(request):
         "word_sentence": word_sentence,
     }       
         return render(request, 'sentences.html', context)
-  
     return render(request, 'sentences.html')
 
 
 
 def syn_anto(request):
 
-    """This function is to generate synonyms and antonyms"""
+    """This function is to generate the meaning of word, synonyms and antonyms"""
     
     if request.method == 'POST':
         
@@ -174,7 +145,6 @@ def syn_anto(request):
         word_antonym= gpt3(f"Write 3 antonyms of {text}")
         
         #By specifying the name of the context in the html, it will display the results.
-        
         context = {           
         "word_synonym": word_synonym,
         "word_antonym": word_antonym,
@@ -182,23 +152,34 @@ def syn_anto(request):
 
     }
        
-        return render(request, 'synonym.html', context)
-
-
-        
+        return render(request, 'synonym.html', context)        
     return render(request, 'synonym.html')
 
 
 
+def fill_the_blank(request):
+
+    """This function is to generate the meaning of word, synonyms and antonyms"""
+    
+    if request.method == 'POST':
+        
+        text = request.POST['text']  #The text we will write
+ 
+        #return meaning
+        blank_answers= gpt3(f"Fill in the blank with appropriate word:{text}")
+        
+        #By specifying the name of the context in the html, it will display the results.
+        context = {           
+        "blank_answers":blank_answers
+
+    }
+       
+        return render(request, 'blanks.html', context)        
+    return render(request, 'blanks.html')
 
 
-## Synonyms
-## Antonyms
 
 ## Rewrite the sentence without changing the meaning.
 
-## Fill the word with grammar/ appropriate word.
 
-## Use word in a sentence.
-
-## Use if idioms in a sentence
+## Translation

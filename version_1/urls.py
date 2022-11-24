@@ -11,6 +11,7 @@ urlpatterns = [
     path("sentence", views.word_mean_sentence),
     path("", views.index),
     path("syn_ant", views.syn_anto),
+    path("fill", views.fill_the_blank),
    
 
 ]
