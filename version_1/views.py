@@ -28,7 +28,7 @@ def index(request):
     """This function is written so that I can test how to write post text and get it to the backend of our system"""
     
         
-    return render(request, 'textbox.html')
+    return render(request, 'index.html')
 
 
 
@@ -52,7 +52,6 @@ def outline(request):
         return render(request, 'outline_results.html', context)
         
     return render(request, 'outline.html')
-
 
 
 def grammar_correction(request):
@@ -125,7 +124,6 @@ def word_mean_sentence(request):
     }       
         return render(request, 'sentences.html', context)
     return render(request, 'sentences.html')
-
 
 
 def syn_anto(request):
@@ -220,7 +218,6 @@ def translate(request):
     }
         return render(request, 'translation.html', context)        
     return render(request, 'translation.html')
-
 
 
 

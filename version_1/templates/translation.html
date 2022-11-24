@@ -1,13 +1,9 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
+{% extends "hometemplate.html" %}
+{% load static %}
+
+
+{% block content %}
+
        
         <h1>This is for For the translation in a language given</h1>
 
@@ -30,6 +26,4 @@
         <h2>Translation: {{translation}}</h2>
         {% endif %}
         
-        
-    </body>
-</html>
+{% endblock %}
