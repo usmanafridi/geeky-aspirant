@@ -12,6 +12,7 @@ urlpatterns = [
     path("", views.index),
     path("syn_ant", views.syn_anto),
     path("fill", views.fill_the_blank),
+    path("translate", views.translate),
    
 
 ]

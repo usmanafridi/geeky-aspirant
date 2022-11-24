@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib import messages
 import openai
+from googletrans import Translator
 
 openai.api_key = "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"
 
@@ -159,27 +160,86 @@ def syn_anto(request):
 
 def fill_the_blank(request):
 
-    """This function is to generate the meaning of word, synonyms and antonyms"""
+    """This function is to return words in the blanks provided in the sentence."""
     
     if request.method == 'POST':
-        
         text = request.POST['text']  #The text we will write
  
-        #return meaning
+        #return words in the blanks
         blank_answers= gpt3(f"Fill in the blank with appropriate word:{text}")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
+        
         "blank_answers":blank_answers
-
     }
-       
         return render(request, 'blanks.html', context)        
     return render(request, 'blanks.html')
 
 
+def translate(request):
 
-## Rewrite the sentence without changing the meaning.
+    """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
+    translation of GPT-3 is not that accurate, comparatively, that of Google is better. """
+    
+    if request.method == 'POST':
+        text = request.POST['text']  #The text we will write
+
+        lang_type = request.POST.get('lang')
+
+        if lang_type == 'Urdu':
+            lang="Urdu" 
+            ln="ur"
+                
+        elif lang_type == 'English':
+            lang="English"
+            ln="en" 
+
+        else:
+            lang="Hindi"
+            ln="hi"
+            
+        
+        #return the translation in Google.
+        if len(text) > 150:
+
+            translation= gpt3(f"Translate the following text in {lang}: \n\n {text} ")
+            print("Translation using GPT-3")
+        
+        else:
+            translator = Translator()
+            translations= translator.translate(text, dest= ln)
+            translation= translations.text
+        #By specifying the name of the context in the html, it will display the results.
+            print("Translated using Googel api")
+        
+        
+        context = {           
+        
+        "translation":translation
+    }
+        return render(request, 'translation.html', context)        
+    return render(request, 'translation.html')
 
 
-## Translation
+
+
+####
+## Things remaining so far.
+####
+
+
+
+## Rewrite the sentence without changing the meaning. (include list of how to change)
+
+
+## Fill in the blank with appropriate words from the options list (general, done!).
+## Provide a list in there in which the user can write some words, so that the correct sentence from those words are given. 
+
+
+#### Translation
+#### The translation of GPT-3 is not that good (especially for single sentences), so we have to look for Google translate in this one.
+
+
+### For short sentences, use Google Translate Api.
+### For longer paragraphs, use GPT-3.

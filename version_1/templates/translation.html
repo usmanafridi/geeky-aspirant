@@ -9,23 +9,27 @@
     </head>
     <body>
        
-        <h1>This is for Fill in the blanks</h1>
+        <h1>This is for For the translation in a language given</h1>
 
         <form id="myForm" method="post">
         {% csrf_token %}
         
         <textarea id="w3review" name="text" rows="2" cols="50">
-            Enter..
-        </textarea>
+            Enter..</textarea>
 
+        
+        <input type="radio" name="lang" value="Urdu">Urdu </input>
+        <input type="radio" name="lang" value="Hindi">Hindi </input>
+        <input type="radio" name="lang" value="English">English </input>
+        
         <input type="submit" value="Submit">
+        
         </form>
         
-        {% if blank_answers %}
-        <h2>Word(s): {{blank_answers}}</h2>
+        {% if translation %}
+        <h2>Translation: {{translation}}</h2>
         {% endif %}
         
         
-       
     </body>
 </html>
