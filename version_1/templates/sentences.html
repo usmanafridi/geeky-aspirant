@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       
+        <h1>This is for words meaning and sentence use</h1>
+
+        <form id="myForm" method="post">
+        {% csrf_token %}
+        
+        <textarea id="w3review" name="text" rows="2" cols="50">
+            Enter..
+        </textarea>
+
+        <input type="submit" value="Submit">
+        </form>
+     
+        
+            {% if word_meaning %}
+        <h1>Meaning: {{word_meaning}}</h1>
+        
+            {% endif %}
+        
+        
+            {% if word_sentence %}
+        
+            <h2>Sentence: {{ word_sentence }}</h2>
+
+            {% endif %}
+        
+       
+    </body>
+</html>
