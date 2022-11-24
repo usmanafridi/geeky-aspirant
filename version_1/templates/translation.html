@@ -2,28 +2,50 @@
 {% load static %}
 
 
+
 {% block content %}
 
        
-        <h1>This is for For the translation in a language given</h1>
+        <h2>This is for For the translation in a language given</h2>
+        <br>
 
         <form id="myForm" method="post">
         {% csrf_token %}
         
-        <textarea id="w3review" name="text" rows="2" cols="50">
+        <textarea id="w3review" name="text" rows="6" cols="80">
             Enter..</textarea>
+       
+        <br>
+        <br>
 
-        
         <input type="radio" name="lang" value="Urdu">Urdu </input>
         <input type="radio" name="lang" value="Hindi">Hindi </input>
         <input type="radio" name="lang" value="English">English </input>
+        
+        <br>
+        <br>
         
         <input type="submit" value="Submit">
         
         </form>
         
-        {% if translation %}
-        <h2>Translation: {{translation}}</h2>
-        {% endif %}
+        <br>
+        <br>
         
+
+        <!-- About the columns in the end -->
+
+
+        <h2>Three Equal Columns</h2>
+
+<div class="row">
+  
+  <div class="column" rows="6" cols="80" style="background-color:rgb(252, 252, 252) ">
+    <h2>Column 2</h2>
+    <p>Some text..</p>
+  </div>
+ 
+</div>
+
+
 {% endblock %}
