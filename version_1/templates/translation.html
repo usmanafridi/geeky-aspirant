@@ -12,9 +12,12 @@
         <form id="myForm" method="post">
         {% csrf_token %}
         
-        <textarea id="w3review" name="text" rows="6" cols="80">
-            Enter..</textarea>
-       
+        
+        <div class="input-group">
+        
+          <textarea class="form-control" name="text" aria-label="With textarea"></textarea>
+        </div>
+        
         <br>
         <br>
 
@@ -35,17 +38,12 @@
 
         <!-- About the columns in the end -->
 
+        <h2>TRANSLATION</h2>
 
-        <h2>Three Equal Columns</h2>
-
-<div class="row">
-  
-  <div class="column" rows="6" cols="80" style="background-color:rgb(252, 252, 252) ">
-    <h2>Column 2</h2>
-    <p>Some text..</p>
-  </div>
- 
-</div>
+        <div class="input-group">
+        
+          <textarea class="form-control" name="output" aria-label="With textarea">{{translation}}</textarea>
+        </div>
 
 
 {% endblock %}

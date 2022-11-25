@@ -1,3 +1,9 @@
+{% extends "hometemplate.html" %}
+{% load static %}
+
+{% block content %}
+
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -9,31 +15,36 @@
     </head>
     <body>
        
+    <br>
         <h1>This is to summary</h1>
 
         <form id="myForm" method="post">
         {% csrf_token %}
         
-        <textarea id="w3review" name="text" rows="2" cols="50">
-            Enter..
-        </textarea>
+        <div class="input-group">
+            <textarea class="form-control" name="text"  cols="10" aria-label="With textarea"></textarea>
+        </div>
+
+    <br>
 
         <input type="submit" value="Submit">
         </form>
      
-        
+    
             {% if correcttitle %}
         <h1>Title: {{correcttitle}}</h1>
         
             {% endif %}
         
+            {% if correctsummary %}
         
-            {% if correctsentence %}
-        
-            <h2>Summary {{ correctsentence }}</h2>
+            <h2>Summary {{ correctsummary }}</h2>
 
             {% endif %}
         
        
     </body>
 </html>
+
+
+{% endblock %}

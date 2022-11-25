@@ -1,3 +1,9 @@
+{% extends "hometemplate.html" %}
+{% load static %}
+
+{% block content %}
+
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,32 +16,45 @@
     <body>
        
         <h1>This is for Synonyms and Antonyms</h1>
-
+        
+        <br>
+        
         <form id="myForm" method="post">
         {% csrf_token %}
         
-        <textarea id="w3review" name="text" rows="2" cols="50">
-            Enter..
-        </textarea>
+        <div class="input-group">
+        
+        <textarea class="form-control" name="text"  cols="10" aria-label="With textarea"></textarea>
+        
+        </div>
 
+        <br>
+        
         <input type="submit" value="Submit">
         </form>
      
-        
+        <br>
+    
         {% if word_meaning %}
-        <h2>Meaning: {{word_meaning}}</h2>
-        {% endif %}
+        <div class="card" style="width: 50rem;">
         
+            <div class="card-body">
+                
+               
+              
+                <p class="card-text">Meaning: {{word_meaning}}.</p>
+              
+                <p class="card-text">Synonym: {{word_synonym}}.</p>
         
-        {% if word_synonym %}
-        <h2>Synonyms: {{word_synonym}}</h2>
-        {% endif %}
-        
-        
-        {% if word_antonym %}
-        <h2>Antonyms: {{ word_antonym }}</h2>
-        {% endif %}
-        
+                <p class="card-text">Antonym: {{word_antonym}}.</p>
+                
+            
+            </div>
+          </div>
+          {% endif %} 
+    
        
     </body>
 </html>
+
+{% endblock %}

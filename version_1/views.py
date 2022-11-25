@@ -13,7 +13,7 @@ def gpt3(prompt):
     model="text-davinci-002",
     prompt=prompt,
     temperature=0.3,
-    max_tokens=700,
+    max_tokens=900,
     top_p=1.0,
     frequency_penalty=0.0,
     presence_penalty=0.0
@@ -90,7 +90,7 @@ def text_summarizer(request):
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
-        "correctsentence": text_summary,
+        "correctsummary": text_summary,
         "correcttitle": title,
 
     }
@@ -220,6 +220,33 @@ def translate(request):
     return render(request, 'translation.html')
 
 
+def comprehension(request):
+
+    """This function is to make a short summary of a text"""
+    
+    if request.method == 'POST':
+        
+        text = request.POST['text']  #The text we will write
+        questions= request.POST['questions']
+        ## Here, the title will be generated 
+        
+        #return answers
+        answers= gpt3(f"Answer the following questions in the {text}:\n\n + {questions}" ,)
+        
+     
+        
+        #By specifying the name of the context in the html, it will display the results.
+        context = {           
+        "answers": answers,
+        
+
+    }
+       
+        return render(request, 'comprehension.html', context)
+
+
+        
+    return render(request, 'comprehension.html')
 
 ####
 ## Things remaining so far.
@@ -240,3 +267,7 @@ def translate(request):
 
 ### For short sentences, use Google Translate Api.
 ### For longer paragraphs, use GPT-3.
+
+
+### ADD COMPREHENSION
+#Very doable!!

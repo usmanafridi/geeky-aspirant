@@ -6,13 +6,13 @@ from . import views
 urlpatterns = [
     path("text-outline", views.outline),
     # path("check", views.index),
-    path("grammar", views.grammar_correction),
-    path("summary", views.text_summarizer),
+    path("grammar", views.grammar_correction, name="grammar"),
+    path("summary", views.text_summarizer, name="summary"),
     path("sentence", views.word_mean_sentence),
     path("", views.index),
-    path("syn_ant", views.syn_anto),
+    path("syn_ant", views.syn_anto, name="synonym"),
     path("fill", views.fill_the_blank),
     path("translate", views.translate, name="translate"),
-   
+    path("comprehension", views.comprehension, name="comprehension"),
 
 ]

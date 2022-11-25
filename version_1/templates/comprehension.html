@@ -1,9 +1,9 @@
 {% extends "hometemplate.html" %}
 {% load static %}
 
-
-
 {% block content %}
+
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -15,33 +15,39 @@
     </head>
     <body>
        
-        <h2>This is for Fill in the blanks</h2>
-
+    <br>
+        <h2>This is for Comprehension</h2>
+        <br>
         <form id="myForm" method="post">
         {% csrf_token %}
         
+        <h2>Write text</h2>
         <div class="input-group">
-        
-            <textarea class="form-control" name="text" aria-label="With textarea"></textarea>
-          
+            <textarea class="form-control" name="text"  cols="10" aria-label="With textarea"></textarea>
         </div>
-        
-        <br>
+
+    <br>
+    <br>
+    <h2>Write questions</h2>
+    <div class="input-group">
+        <textarea class="form-control" name="questions"  cols="10" aria-label="With textarea"></textarea>
+    </div>
+
         <input type="submit" value="Submit">
         </form>
+     
+    
+      
         
-        {% if blank_answers %}
-        <div class="input-group">
+            {% if answers %}
         
-            <textarea class="form-control" name="text" aria-label="With textarea">{{blank_answers}}</textarea>
-          
-        </div>
-        
-        {% endif %}
-        
+            <h2>Summary {{ answers }}</h2>
+
+            {% endif %}
         
        
     </body>
 </html>
+
 
 {% endblock %}
