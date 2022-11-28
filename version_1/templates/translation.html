@@ -13,37 +13,66 @@
         {% csrf_token %}
         
         
-        <div class="input-group">
         
-          <textarea class="form-control" name="text" aria-label="With textarea"></textarea>
-        </div>
+  <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
         
-        <br>
-        <br>
+        <div class="col-xl-6 col-md-4">
+          <h2>Enter Text</h2>
+            
+            
+            <textarea  name="text" rows="4"></textarea>
+        
+        
+            <br>
+            <br>
+    
+            <input type="radio" name="lang" value="Urdu">Urdu </input>
+            <input type="radio" name="lang" value="Hindi">Hindi </input>
+            <input type="radio" name="lang" value="English">English </input>
+            
+            <br>
+            <br>
+            
+            <input type="submit" value="Submit">
+            
+            </form>
+            
+            <br>
+            <br>
+            
+          </div>
+          
+          
+        
+        
+         
+            
+          <div class="col-xl-6 col-md-8">
+            <h2>TRANSLATION</h2>
 
-        <input type="radio" name="lang" value="Urdu">Urdu </input>
-        <input type="radio" name="lang" value="Hindi">Hindi </input>
-        <input type="radio" name="lang" value="English">English </input>
+            <!-- <div class="input-group"> -->
+            
+            <textarea  name="output" aria-label="With textarea">{{translation}}</textarea>
+          
+          
+          </div>
+          
         
-        <br>
-        <br>
         
-        <input type="submit" value="Submit">
         
-        </form>
+       
         
-        <br>
-        <br>
+      </div>
+
+       
+        <!-- <div class="input-group"> -->
         
+         
 
         <!-- About the columns in the end -->
 
-        <h2>TRANSLATION</h2>
-
-        <div class="input-group">
         
-          <textarea class="form-control" name="output" aria-label="With textarea">{{translation}}</textarea>
-        </div>
+      
 
 
 {% endblock %}
