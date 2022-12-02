@@ -222,19 +222,20 @@ def translate(request):
 
 def comprehension(request):
 
-    """This function is to make a short summary of a text"""
+    """This function is to write comprehension answers of a text"""
     
     if request.method == 'POST':
         
         text = request.POST['text']  #The text we will write
-        questions= request.POST['questions']
+        
+
+        questions= request.POST['textbox1']
         ## Here, the title will be generated 
         
         #return answers
         answers= gpt3(f"Answer the following questions in the {text}:\n\n + {questions}" ,)
         
      
-        
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "answers": answers,

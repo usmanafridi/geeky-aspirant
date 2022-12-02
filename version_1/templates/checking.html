@@ -47,7 +47,20 @@
                 & make your upcoming placement season efficient
                 and successful.
             </div>
-              
+        
+
+            <button onclick="showHideTextBox()">Click Me to Show/Hide</button>
+            <input type="textbox" id="city">
+            <script>
+                function showHideTextBox(){
+                  var x = document.getElementById("city");
+                  if (x.style.display === "none") {
+                    x.style.display = "block";
+                  } else {
+                    x.style.display = "none";
+                  }
+                }
+            </script>
             
         </div>
     </body> 
