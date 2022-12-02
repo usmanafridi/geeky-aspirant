@@ -222,6 +222,15 @@ def translate(request):
 
 def comprehension(request):
 
+    
+    ## This is to calcualte the number of requests made so that the questions can be answered dynamically!!
+    post_data = request.POST
+
+    # Get the number of textboxes that were created
+    num_textboxes = len(post_data)
+
+    print(f"The number of post request: {num_textboxes}")
+
     """This function is to write comprehension answers of a text"""
     
     if request.method == 'POST':
@@ -229,19 +238,23 @@ def comprehension(request):
         text = request.POST['text']  #The text we will write
         
 
-        questions= request.POST['textbox1']
-        ## Here, the title will be generated 
+        question1= request.POST['textbox1']
+        question2= request.POST['textbox2']
+       
+       
+        #Here the answers will be generated.
         
+
         #return answers
-        answers= gpt3(f"Answer the following questions in the {text}:\n\n + {questions}" ,)
+        answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2}" ,)
         
      
         #By specifying the name of the context in the html, it will display the results.
-        context = {           
-        "answers": answers,
         
-
-    }
+       
+        
+        context = {           
+        "answers": answers}
        
         return render(request, 'comprehension.html', context)
 
