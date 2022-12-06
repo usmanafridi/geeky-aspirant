@@ -26,14 +26,11 @@ def gpt3(prompt):
     return result
 
 
-
-
 def index(request):
     """This function is written so that I can test how to write post text and get it to the backend of our system"""
     
         
     return render(request, 'index.html')
-
 
 
 def outline(request):
@@ -372,12 +369,14 @@ def contactView(request):
             subject = form.cleaned_data["subject"]
             from_email = form.cleaned_data["from_email"]
             message = form.cleaned_data['message']
+            name = form.cleaned_data['name']
             try:
-                send_mail(subject, message, from_email, ["admin@example.com"])
+                send_mail(subject, message, name, ["admin@example.com"])
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
-            return redirect("success")
-    return render(request, "email.html", {"form": form})
+            return redirect("success") #This redirect to the success page after successful contact post
+    
+    return render(request, "contact.html", {"form": form})
 
 def successView(request):
     return HttpResponse("Success! Thank you for your message.")
