@@ -14,5 +14,13 @@ urlpatterns = [
     path("fill", views.fill_the_blank),
     path("translate", views.translate, name="translate"),
     path("comprehension", views.comprehension, name="comprehension"),
+    ## This is for contact information
+    path("contact/", views.contactView, name="contact"),
+    path("success/", views.successView, name="success"),
 
 ]
+
+
+## Link for the website from which the contact form was taken. 
+
+## https://learndjango.com/tutorials/django-email-contact-form
