@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-
 from . import views
 
 urlpatterns = [
@@ -15,6 +14,7 @@ urlpatterns = [
     path("translate", views.translate, name="translate"),
     path("comprehension", views.comprehension, name="comprehension"),
     ## This is for contact information
+    
     path("contact/", views.contactView, name="contact"),
     path("success/", views.successView, name="success"),
 

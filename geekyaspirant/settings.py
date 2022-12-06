@@ -121,5 +121,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 ###This for Email Contact:
 
-DEFAULT_FROM_EMAIL = "usman.afridi.uet@gmail.com"
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '6c414c0a545d4e'
+EMAIL_HOST_PASSWORD = 'f927d618edeb5a'
+EMAIL_PORT = '2525'
