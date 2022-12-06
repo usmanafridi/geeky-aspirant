@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 import openai
 from googletrans import Translator
+from django.template import loader
 
 openai.api_key = "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"
 
@@ -155,7 +156,6 @@ def syn_anto(request):
     return render(request, 'synonym.html')
 
 
-
 def fill_the_blank(request):
 
     """This function is to return words in the blanks provided in the sentence."""
@@ -231,36 +231,138 @@ def comprehension(request):
 
     print(f"The number of post request: {num_textboxes}")
 
+    print(f"Post data is { post_data.items()}")
+
     """This function is to write comprehension answers of a text"""
     
-    if request.method == 'POST':
+    if num_textboxes > 0 and num_textboxes <= 4:
+        if request.method == 'POST':
+            text = request.POST['text']  #The text we will write
+            
+            question1= request.POST['textbox1']
+            # question2= request.POST['textbox2']
+            #Here the answers will be generated.
         
-        text = request.POST['text']  #The text we will write
+            #return answers
+            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n " )
+            context = {           
+        "answers": answers}
+       
+        return render(request, 'comprehension.html', context)
+    
+    elif num_textboxes > 4 and num_textboxes <= 5:
         
+        if request.method == 'POST':
+            d={}
+            text = request.POST['text']  #The text we will write
+            
+            question1= request.POST['textbox1']
+            question2= request.POST['textbox2']
 
-        question1= request.POST['textbox1']
-        question2= request.POST['textbox2']
-       
-       
-        #Here the answers will be generated.
         
+            #Here the answers will be generated.
+            
 
-        #return answers
-        answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2}" ,)
-        
-     
-        #By specifying the name of the context in the html, it will display the results.
-        
+            #return answers
+            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2} " )
+            
+            context = {           
+        "answers": answers}
        
+        return render(request, 'comprehension.html', context)
+
+    elif num_textboxes > 5 and num_textboxes <= 6:
         
-        context = {           
+        if request.method == 'POST':
+            d={}
+            text = request.POST['text']  #The text we will write
+            
+            question1= request.POST['textbox1']
+            question2= request.POST['textbox2']
+            question3= request.POST['textbox3']
+
+        
+            #Here the answers will be generated.
+            
+
+            #return answers
+            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2} +\n\n {question3}" )
+            
+            context = {           
         "answers": answers}
        
         return render(request, 'comprehension.html', context)
 
 
+
+    elif num_textboxes > 6 and num_textboxes <= 7:
+        
+        if request.method == 'POST':
+            d={}
+            text = request.POST['text']  #The text we will write
+            
+            question1= request.POST['textbox1']
+            question2= request.POST['textbox2']
+            question3= request.POST['textbox3']
+            question4= request.POST['textbox4']
+
+        
+            #Here the answers will be generated.
+            
+
+            #return answers
+            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2} +\n\n {question3}+\n\n {question4}" )
+            
+            context = {           
+        "answers": answers}
+       
+        return render(request, 'comprehension.html', context)
+
+    elif num_textboxes > 7 and num_textboxes <= 8:
+        
+        if request.method == 'POST':
+            d={}
+            text = request.POST['text']  #The text we will write
+            
+            question1= request.POST['textbox1']
+            question2= request.POST['textbox2']
+            question3= request.POST['textbox3']
+            question4= request.POST['textbox4']
+            question5= request.POST['textbox5']
+
+        
+            #Here the answers will be generated.
+            
+
+            #return answers
+            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2} +\n\n {question3}+\n\n {question4}+\n\n {question5}" )
+            
+            context = {           
+        "answers": answers}
+       
+        return render(request, 'comprehension.html', context)
+
+    
+    else:
+        None
+        
+        #By specifying the name of the context in the html, it will display the results.
+        
+       
+        
+        
+
+
         
     return render(request, 'comprehension.html')
+
+
+
+
+
+
+
+
 
 ####
 ## Things remaining so far.

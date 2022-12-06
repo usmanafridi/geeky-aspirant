@@ -1,15 +1,13 @@
 {% extends "hometemplate.html" %}
 {% load static %}
 
-
-
 {% block content %}
 
        
         <h2>This is for Comprehension</h2>
         <br>
 
-        <form id="myForm" method="post">
+  <form id="myForm" method="post">
         {% csrf_token %}
         
         
@@ -72,6 +70,7 @@
             <!-- <div class="input-group"> -->
             
             <textarea  name="output" aria-label="With textarea">{{answers}}</textarea>
+            
           
           
           </div>
