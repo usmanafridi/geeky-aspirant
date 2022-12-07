@@ -358,8 +358,6 @@ def comprehension(request):
 
 
 
-
-
 def contactView(request):
     if request.method == "GET":
         form = ContactForm()
@@ -374,7 +372,7 @@ def contactView(request):
                 send_mail(subject, message, name, ["admin@example.com"])
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
-            return redirect("success") #This redirect to the success page after successful contact post
+            return redirect("success") #This redirect to the success page after successful contact post.
     
     return render(request, "contact.html", {"form": form})
 
@@ -403,6 +401,12 @@ def successView(request):
 ### For short sentences, use Google Translate Api.
 ### For longer paragraphs, use GPT-3.
 
+## Add direct/ indirect
 
-### ADD COMPREHENSION
-#Very doable!!
+## Add a dialogue between two friends.
+
+## Tense correction.
+
+## Prepositions
+
+## Conjunctions
