@@ -380,6 +380,32 @@ def successView(request):
     return HttpResponse("Success! Thank you for your message.")
 
 
+def speech_change(request):
+
+    """This function is to change the speech into direct and indirect """
+    
+    if request.method == 'POST':
+        text = request.POST['text']  #The text we will write
+
+        speech_type = request.POST.get('speech')
+
+        if speech_type == 'direct':
+            speech="Direct Speech" 
+            
+
+        else:
+            speech="Indirect Speech" 
+           
+        speech_change= gpt3(f"Change the following into {speech}: \n\n {text} ")
+    
+        context = {           
+        
+        "speech_result":speech_change
+    }
+        return render(request, 'direct_indirect.html', context)        
+    return render(request, 'direct_indirect.html')
+
+
 
 ####
 ## Things remaining so far.

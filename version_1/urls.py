@@ -13,6 +13,8 @@ urlpatterns = [
     path("fill", views.fill_the_blank),
     path("translate", views.translate, name="translate"),
     path("comprehension", views.comprehension, name="comprehension"),
+    path("speech", views.speech_change, name="speech"),
+    
     ## This is for contact information
     
     path("contact/", views.contactView, name="contact"),

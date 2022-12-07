@@ -1,0 +1,73 @@
+{% extends "hometemplate.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+       
+        <h2>This is for the speech change</h2>
+        <br>
+
+        <form id="myForm" method="post">
+        {% csrf_token %}
+        
+        
+        
+  <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        
+        <div class="col-xl-6 col-md-4">
+          <h2>Enter Text</h2>
+            
+            
+            <textarea  name="text" rows="4"></textarea>
+        
+        
+            <br>
+            <br>
+    
+            <input type="radio" name="speech" value="direct">Direct Speech </input>
+            <input type="radio" name="speech" value="indirect">Indirect Speech </input>
+           
+            
+            <br>
+            <br>
+            
+            <input type="submit" value="Submit">
+            
+            </form>
+            
+            <br>
+            <br>
+            
+          </div>
+          
+        
+        
+         
+            
+          <div class="col-xl-6 col-md-8">
+            <h2>Speech Change</h2>
+
+            <!-- <div class="input-group"> -->
+            
+            <textarea  name="output" aria-label="With textarea">{{speech_result}}</textarea>
+          
+          
+          </div>
+          
+        
+        
+        
+       
+        
+      </div>
+
+       
+      
+
+        
+      
+
+
+{% endblock %}
