@@ -407,11 +407,20 @@ def speech_change(request):
 
 
 
+
+#### Functionality Remaining:
+
+## Give the user the option to upload the file so the text can be copied from it. 
+
+## Give another funtionality in which the user can copy the result and paste it in the word
+
+
+
 ####
 ## Things remaining so far.
 ####
 
-
+## In the fill in the blanks section, give the user the choice of how he/she wants to fill the blank.
 
 ## Rewrite the sentence without changing the meaning. (include list of how to change)
 
@@ -427,7 +436,7 @@ def speech_change(request):
 ### For short sentences, use Google Translate Api.
 ### For longer paragraphs, use GPT-3.
 
-## Add direct/ indirect
+
 
 ## Add a dialogue between two friends.
 
