@@ -357,7 +357,6 @@ def comprehension(request):
     return render(request, 'comprehension.html')
 
 
-
 def contactView(request):
     if request.method == "GET":
         form = ContactForm()

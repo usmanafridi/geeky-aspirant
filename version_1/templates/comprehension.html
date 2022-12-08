@@ -18,7 +18,7 @@
           <h2>Enter Text</h2>
             
             
-            <textarea  name="text" rows="4"></textarea>
+            <textarea id="myTextarea" name="text" rows="4"></textarea>
         
         
             <br>
@@ -35,7 +35,7 @@
            document.getElementById("add-textbox-button").addEventListener("click", function() {
              // Increment the textbox counter
              textboxCounter++;
-           
+    
              // Create the textbox element
              var textbox = document.createElement("input");
              textbox.type = "text";
@@ -47,8 +47,35 @@
              event.preventDefault();
            });
            
-             </script>
+          
+           var textbox = document.getElementById("myTextarea");
+           console.log("the value geat by textbox"+ textbox)
+            // Get the text from the textbox
+            var text = textbox.value;
+
+            // Save the text to localStorage
+            text= localStorage.setItem("mydata" ,  textbox);
+            // localStorage.setItem("mydata store "+ text);
+            console.log("the value geat by textbox"+ textbox.value)
+
+            // Get the text from localStorage
+            // var text = localStorage.getItem("text");
+           mydata = localStorage.getItem("mydata")
+           console.log("the value geat by textbox"+ mydata.value, + "2nd value" + mydata[0])
+            // Check if the text exists
+            if (mydata) {
+                // Get the textbox element
+                var textbox = document.getElementById("myTextarea");
+
+                // Set the textbox value
+                textbox.value = mydata;
+            }
+
             
+            </script>
+
+
+
             <br>
             <br>
             
