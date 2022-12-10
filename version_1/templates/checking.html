@@ -1,67 +1,80 @@
-<!DOCTYPE html> 
-<html> 
-    <head> 
+{% extends "hometemplate.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+     
           
-        <!-- CSS property to place div
-            side by side -->
-        <style> 
-            #leftbox {
-                float:left; 
-                background:Red;
-                width:40%;
-                height:280px;
-            }
-            #middlebox{
-                float:left; 
-                background:Green;
-                width:40%;
-                height:280px;
-            }
-         
-            h1{
-                color:green;
-                text-align:center;
-            }
-        </style> 
-    </head> 
-      
-    <body> 
-        <div id = "boxes">
-            <h1>GeeksforGeeks</h1>
+          
+         <main id="main"> 
+        <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container shadow-lg" data-aos="fade-up">
+        <div class="row">
+          <div class="border-div col-lg-12">
               
-            <div id = "leftbox">
-                <h2>Learn:</h2>
-                It is a good platform to learn programming.
-                It is an educational website. Prepare for
-                the Recruitment drive  of product based 
-                companies like Microsoft, Amazon, Adobe 
-                etc with a free online placement preparation 
-                course.
-            </div> 
+              <button type="button" class="btn tab-btn border-0" disabled>Modes:</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Fluency</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Formal</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Simple</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Creative</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Expand</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Shorten</button> Synonyms:</button>
+              <input type="range" class="form-range" id="customRange1"><i class="bi bi-gem hira"></i>
+          </div>
+          
 
-            
-            <div id = "middlebox">
-                <h2>GeeksforGeeks:</h2>
-                The course focuses on various MCQ's & Coding 
-                question likely to be asked in the interviews
-                & make your upcoming placement season efficient
-                and successful.
-            </div>
-        
+          <form id="myForm" method="post">
+        {% csrf_token %}
 
-            <button onclick="showHideTextBox()">Click Me to Show/Hide</button>
-            <input type="textbox" id="city">
-            <script>
-                function showHideTextBox(){
-                  var x = document.getElementById("city");
-                  if (x.style.display === "none") {
-                    x.style.display = "block";
-                  } else {
-                    x.style.display = "none";
-                  }
-                }
-            </script>
+          <div class="col-lg-6 order-2 order-lg-1 content m-0 p-0" data-aos="fade-right" data-aos-delay="100">
+              <textarea class="textarea-1 p-2" name="text" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button."></textarea>
+                  
+
+                  <label for="file-input">
+                        
+
+                        <input type="radio" name="lang" value="Urdu">Urdu </input>
+                        <input type="radio" name="lang" value="Hindi">Hindi </input>
+                        <input type="radio" name="lang" value="English">English </input>
+                  
+                  </label>
+                  <input id="file-input" type="file" class="image-upload" />
+              
+
+              <button type="submit" class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root quillArticleBtn css-1r3yqip para-btn" tabindex="0" type="button">
+                Paraphrase
+              </button>
+          
+          </div>
+
+
+         
             
+            
+  
+            
+            </form>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 m-0 p-0" data-aos="fade-left" data-aos-delay="100">
+              <textarea class="textarea-1 p-2" name="output" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{translation}}</textarea>
+      
+          </div>
+
         </div>
-    </body> 
-</html>              
+
+      </div>
+
+      </section>
+      <!-- End About Section -->
+
+        
+      
+  </main><!-- End #main -->
+
+
+{% endblock %}

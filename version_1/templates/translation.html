@@ -5,74 +5,68 @@
 
 {% block content %}
 
-       
-        <h2>This is for For the translation in a language given</h2>
-        <br>
 
-        <form id="myForm" method="post">
+
+
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        
+<form method="post">
         {% csrf_token %}
-        
-        
-        
-  <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-        
-        <div class="col-xl-6 col-md-4">
-          <h2>Enter Text</h2>
-            
-            
-            <textarea  name="text" rows="4"></textarea>
-        
-        
-            <br>
-            <br>
-    
-            <input type="radio" name="lang" value="Urdu">Urdu </input>
-            <input type="radio" name="lang" value="Hindi">Hindi </input>
-            <input type="radio" name="lang" value="English">English </input>
-            
-            <br>
-            <br>
-            
-            <input type="submit" value="Submit">
-            
-            </form>
-            
-            <br>
-            <br>
-            
-          </div>
-          
-          
-        
-        
-         
-            
-          <div class="col-xl-6 col-md-8">
-            <h2>TRANSLATION</h2>
 
-            <!-- <div class="input-group"> -->
-            
-            <textarea  name="output" aria-label="With textarea">{{translation}}</textarea>
-          
-          
+        <div class="container shadow-lg" data-aos="fade-up">
+        <div class="row">
+          <div class="border-div col-lg-12">
+              
+              <button type="button" class="btn tab-btn border-0" disabled>Modes:</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Fluency</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Formal</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Simple</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Creative</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Expand</button>
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Shorten</button> Synonyms:</button>
+              <input type="range" class="form-range" id="customRange1"><i class="bi bi-gem hira"></i>
           </div>
-          
-        
-        
-        
-       
-        
+          <div class="col-lg-6 order-2 order-lg-1 content m-0 p-0" data-aos="fade-right" data-aos-delay="100">
+              <textarea class="textarea-1 p-2" name="text" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button."></textarea>
+              <div class="lg-btn">
+                   <label for="file-input">
+                        
+
+                        <input type="radio" name="lang" value="Urdu">Urdu </input>
+                        <input type="radio" name="lang" value="Hindi">Hindi </input>
+                        <input type="radio" name="lang" value="English">English </input>
+                  
+                  </label>
+                 
+              <button type="submit" class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root quillArticleBtn css-1r3yqip para-btn btnsm" tabindex="0" type="button">
+                Paraphrase
+              </button>
+              </div>
+
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 m-0 p-2 bordrbttm" data-aos="fade-left" data-aos-delay="100">
+              <textarea class="textarea-1 p-2" name="output" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{translation}}</textarea>
+              <div>
+                
+              </div>
+                <label for="file-input">
+                  <i class="bi bi-cloud-upload iconlgnone"></i> <span class="upload-doc iconlgnone"> Upload Doc</span>
+                </label>
+            <button class="btn btn-sm minidisply">Translate </button>
+          </div>
+
+        </div>
+
       </div>
+</form>
+      </section>
+ 
+    </main>
 
-       
-        <!-- <div class="input-group"> -->
-        
-         
-
-        <!-- About the columns in the end -->
-
-        
-      
-
+     
+    
 
 {% endblock %}

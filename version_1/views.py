@@ -136,19 +136,22 @@ def syn_anto(request):
         text = request.POST['text']  #The text we will write
  
         #return meaning
-        word_meaning= gpt3(f"Write the meaning of {text} in 1. English and 2. Urdu.\n\n")
+        word_meaning= gpt3(f"Write the meaning of {text} \n\n")
         
         #return syn
-        word_synonym= gpt3(f"Write 3 synonyms of {text}")
+        word_synonym= gpt3(f"Write at least three synonyms of {text} \n\n")
         
         #return ant
-        word_antonym= gpt3(f"Write 3 antonyms of {text}")
+        word_antonym= gpt3(f"Write at least three antonyms of {text}\n\n ")
+
+        word_sentence= gpt3(f"Use {text} in a sentence")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "word_synonym": word_synonym,
         "word_antonym": word_antonym,
-        "word_meaning":word_meaning
+        "word_meaning":word_meaning,
+       
 
     }
        
