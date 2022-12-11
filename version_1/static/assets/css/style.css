@@ -639,6 +639,27 @@ section {
   padding-top: 0 !important;
   margin-top: 0 !important ;
 }
+.icodiv{
+  float: left;
+}
+.fileinput{
+  margin-top: 26px;
+}
+.parbtn-div{
+  float: right;
+}
+.parbtn{
+  float: right; 
+  margin-top: 40px;
+  background: #111;
+  color: #fff;
+  border-radius: 30px;
+}
+.parbtn:hover{
+  background: #000;
+  color: #fff;
+  box-shadow: 3px 2px 8px gray; 
+}
 
 /*--------------------------------------------------------------
 # Clients
@@ -1637,12 +1658,12 @@ section {
 }
 
 .textarea-1 {
-  width: 23em !important;
+  width: 100% !important;
   height: 55vh !important;
 }
 .textarea-2{
   border: 1px solid black;
-  width: 23em !important;
+  width: 100% !important;
   height: 55vh !important;
 }
 .content{
@@ -1667,20 +1688,10 @@ section {
 .bordrbttm{
   border-bottom: 2px solid darkgray;
 }
-.minidisply{
-  background: #151515;
-  color: white;
-  float: right;
-  display: inherit !important;
-  border-radius: 30px;
-  margin-right: 20px;
-}
 .btnsm{
   display: none !important;
 }
-.iconsmnone{
-  display: none;
-}
+
 }
 @media (min-width: 640px) {  
 .icon-box {
@@ -1697,15 +1708,11 @@ section {
 .bordrbttm{
   border-bottom: 2px solid darkgray;
 }
-.minidisply{
-  display: inherit !important;
-}
+
 .btnsm{
   display: none !important;
 }
-.iconsmnone{
-  display: none;
-}
+
 }
 @media (min-width: 768px) {  
 .icon-box {
@@ -1730,15 +1737,11 @@ section {
   padding-top: 14px !important;
   margin-left: 30px !important;
 }
-.minidisply{
-  display: inherit !important;
-}
+
 .btnsm{
   display: none !important;
 }
-.iconsmnone{
-  display: none;
-}
+
 
 
 }
@@ -1752,12 +1755,12 @@ section {
 }
 
 .textarea-1 {
-  width: 28em !important;
+  width: 100% !important;
   height: 45vh !important;
 } 
 
 .textarea-2{
-  width: 28em !important;
+  width: 100% !important;
   height: 45vh !important;
 
 }
@@ -1779,18 +1782,11 @@ section {
 .bordrbttm{
   border-bottom: none !important;
 }
-.minidisply{
-  display: none !important;
-}
-.iconlgnone{
-  display: none;
-}
+
 .btnsm{
   display: inherit !important;
 }
-.iconsmnone{
-  display: inherit;
-}
+
 
 }
 @media (min-width: 1280px) {  
@@ -1805,12 +1801,12 @@ section {
   }
 /*==============================================================*/
 .textarea-1 {
-  width: 37em !important;
+  width: 100% !important;
   height: 45vh !important;
 } 
 
 .textarea-2{
-  width: 35em !important;
+  width: 100% !important;
   height: 45vh !important;
 
 }
@@ -1834,15 +1830,11 @@ section {
 .bordrbttm{
   border-bottom: none !important;
 }
-.minidisply{
-  display: none !important;
-}
+
 .btnsm{
   display: inherit !important;
 }
-.iconsmnone{
-  display: inherit;
-}
+
 
 }
 @media (min-width: 1536px) { 
@@ -1872,15 +1864,9 @@ section {
 .bordrbttm{
   border-bottom: none !important;
   }
-.minidisply{
-  display: none !important;
-}
 
 .btnsm{
   display: inherit !important;
-}
-.iconsmnone{
-  display: inherit;
 }
 
 
@@ -1947,20 +1933,20 @@ color: black;
   margin-left: 30px !important;
 }
 .textarea-1 {
-  width: 45em;
+  width: 100%;
   height: 45vh;
   padding: 0 0;
   box-sizing: border-box;
   border: none;
   border-radius: 0px;
-  font-size: 0.9rem !important;
+  font-size: 16px;
   resize: none;
   margin: 0;
   outline: none;
 } 
 
 .textarea-2{
-  width: 40em;
+  width: 100%;
   height: 45vh;
   padding: 0 0;
   box-sizing: border-box;
@@ -1970,8 +1956,8 @@ color: black;
   font-size: 16px;
   resize: none;
   margin: 0;
-  margin-left: 10px;
-    outline: none;
+   margin: 0;
+  outline: none;
 
 }
 .css-1r3yqip.css-1r3yqip.quillArticleBtn {

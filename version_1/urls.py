@@ -3,7 +3,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path("text-outline", views.outline),
+    path("text-outline", views.outline, name="text_outline"),
     # path("check", views.index),
     path("grammar", views.grammar_correction, name="grammar"),
     path("summary", views.text_summarizer, name="summary"),
@@ -22,6 +22,8 @@ urlpatterns = [
 
 ]
 
+
+## Only Comprehension left baaqi sara ho gaya
 
 ## Link for the website from which the contact form was taken. 
 
