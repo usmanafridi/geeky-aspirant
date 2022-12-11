@@ -40,7 +40,7 @@ def outline(request):
 
         text = request.POST['text']  #The text we will write (Here the "text" is the name of the form in html )
 
-        text_response = gpt3(text)
+        text_response = gpt3(f"Write 10 outlines of {text} ")
 
         #The context will return the text response
 
@@ -50,7 +50,7 @@ def outline(request):
         "htmltext": text_response
     }
        
-        return render(request, 'outline_results.html', context)
+        return render(request, 'outline.html', context)
         
     return render(request, 'outline.html')
 
