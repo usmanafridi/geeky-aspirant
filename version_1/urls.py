@@ -25,6 +25,26 @@ urlpatterns = [
 
 ## Only Comprehension left baaqi sara ho gaya
 
+
+## Test the performance of the different models in OpenAi
+
+
+## Make the text look more visually appealing.
+
+
+## Add the blog post, so that different posts are there.
+
+
+## Add the contact form, so that the user complains can be listened to.
+
+
+## Choose a website for deploying. Heroku and Django.
+
+
+
+
+
+
 ## Link for the website from which the contact form was taken. 
 
 ## https://learndjango.com/tutorials/django-email-contact-form
