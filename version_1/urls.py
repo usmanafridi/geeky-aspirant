@@ -28,8 +28,14 @@ urlpatterns = [
 
 ## Test the performance of the different models in OpenAi
 
+        
+        ## Also make sure the results generated for word synonnyms, antonyms, might come in a list or maybe not. So write a condition for that in the backend.
+        ## Babbage give good results for sentence generation and word meaning. Davinci was the best though.
 
-## Make the text look more visually appealing.
+
+## Use Google API for translation of small words,and sentences, which is free of cost
+
+## Make the text look more visually appealing. Also, change the Icons, and the UI of the web to make it look more attractive.
 
 
 ## Add the blog post, so that different posts are there.
@@ -38,7 +44,7 @@ urlpatterns = [
 ## Add the contact form, so that the user complains can be listened to.
 
 
-## Choose a website for deploying. Heroku and Django.
+## Choose a website for deploying. Heroku and Python Anywhere.
 
 
 
