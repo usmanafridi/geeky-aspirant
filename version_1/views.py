@@ -360,6 +360,40 @@ def comprehension(request):
     return render(request, 'comprehension.html')
 
 
+
+### The comprehension questions can be dealt in two ways. 
+  ## One way is to ask the questions from a given passage.
+  ## Another one is to fill in the blanks.
+  ## The updated one, I have included to incude fill in the blanks, the above when is for questions.
+  ## But a great care must be taken in the Prompt selection, as everything depends on that.
+
+def comprehension_updated(request):
+
+    if request.method == 'POST':
+        text = request.POST['text']  #The text we will write
+ 
+        #return words in the blanks
+        questions= request.POST['textbox_question']
+
+
+        answers= gpt3(f"Fill the blank in {questions} from the {text} " )
+        
+        #By specifying the name of the context in the html, it will display the results.
+        context = {           
+        
+        "answers":answers
+    }
+        return render(request, 'comprehension.html', context)       
+    return render(request, 'comprehension.html')
+
+    
+    
+        
+
+
+
+
+
 def contactView(request):
     if request.method == "GET":
         form = ContactForm()

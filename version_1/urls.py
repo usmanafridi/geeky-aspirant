@@ -12,7 +12,7 @@ urlpatterns = [
     path("syn_ant", views.syn_anto, name="synonym"),
     path("fill", views.fill_the_blank),
     path("translate", views.translate, name="translate"),
-    path("comprehension", views.comprehension, name="comprehension"),
+    path("comprehension", views.comprehension_updated, name="comprehension"),
     path("speech", views.speech_change, name="speech"),
     
     ## This is for contact information
@@ -25,7 +25,7 @@ urlpatterns = [
 
 ## Only Comprehension left baaqi sara ho gaya
 
-
+## The scope of this project can be expanded to IELTS Preparation as well.
 
 ## Test the performance of the different models in OpenAi
 
