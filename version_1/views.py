@@ -7,6 +7,7 @@ from django.template import loader
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
 from django.shortcuts import render, redirect
+from django_ratelimit.decorators import ratelimit
 
 openai.api_key = "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"
 
@@ -158,6 +159,9 @@ def syn_anto(request):
         return render(request, 'synonym.html', context)        
     return render(request, 'synonym.html')
 
+
+
+## In fill in the blanks, give prior examples so that the prompt can pick this up.
 
 def fill_the_blank(request):
 
@@ -368,6 +372,7 @@ def comprehension(request):
   ## The updated one, I have included to incude fill in the blanks, the above when is for questions.
   ## But a great care must be taken in the Prompt selection, as everything depends on that.
 
+@ratelimit(key='ip', rate='4/m')
 def comprehension_updated(request):
 
     if request.method == 'POST':
