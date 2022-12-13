@@ -23,6 +23,9 @@ urlpatterns = [
 ]
 
 
+## Give prior Prompt examples so that it can pick it up easy, and that the results are good in production.
+
+
 ## Only Comprehension left baaqi sara ho gaya
 
 ## The scope of this project can be expanded to IELTS Preparation as well.
