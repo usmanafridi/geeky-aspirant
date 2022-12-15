@@ -187,9 +187,17 @@ def translate(request):
     """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
     translation of GPT-3 is not that accurate, comparatively, that of Google is better. """
     
+  
+
+    
+    
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
-
+        
+        vol = request.POST['vol']
+        print(vol)
+        
+        
         lang_type = request.POST.get('lang')
 
         if lang_type == 'Urdu':
@@ -374,7 +382,8 @@ def comprehension(request):
 
 @ratelimit(key='ip', rate='4/m')
 def comprehension_updated(request):
-
+    
+    
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
  
@@ -390,6 +399,9 @@ def comprehension_updated(request):
         "answers":answers
     }
         return render(request, 'comprehension.html', context)       
+    
+    
+    
     return render(request, 'comprehension.html')
 
     
@@ -459,6 +471,12 @@ def successView(request):
 ####
 ## Things remaining so far.
 ####
+
+
+## Use ReCaptcha so that bots are not able to enter into the website. Because then the API will be completely lost.
+
+
+## Remove p-2 from the text area box so that the texts are aligned in the input and output box.
 
 ## In the fill in the blanks section, give the user the choice of how he/she wants to fill the blank.
 
