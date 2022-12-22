@@ -473,7 +473,12 @@ def successView(request):
 ####
 
 
+
+## Use a simple login authentication where the user can just enter their email, and then, they can access all the features of the website.
+
 ## Use ReCaptcha so that bots are not able to enter into the website. Because then the API will be completely lost.
+
+
 
 
 ## Remove p-2 from the text area box so that the texts are aligned in the input and output box.
