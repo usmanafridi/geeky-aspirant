@@ -8,6 +8,8 @@ urlpatterns = [
     path("v1/", include('version_1.urls')), #This will accept all the endpoints of version_1 application
     path("profile/", include('users.urls')),
     path("blogs/", include('blog_posts.urls')),
+    path('accounts/', include('allauth.urls')),
+
 
 ]
 

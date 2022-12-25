@@ -473,6 +473,7 @@ def successView(request):
 ####
 
 
+## The chucks can be made. This week, try to visually make the app good. And in parallel, use Google auth, and pricing mechanism as well.
 
 ## Use a simple login authentication where the user can just enter their email, and then, they can access all the features of the website.
 

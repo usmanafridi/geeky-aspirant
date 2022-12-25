@@ -30,3 +30,6 @@ def retrieve_blog(request, id):
         'blog': blog
     }
     return render(request, 'detail.html', context)
+
+
+## Good website for blog creation : https://justdjango.com/blog/build-a-blog-with-django
