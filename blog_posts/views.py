@@ -10,13 +10,14 @@ def list_mobile(request):
 
     context= {}
 
-    blogs= Task.objects.all()
+    
+    blogs= Task.objects.order_by('-date_posted')
 
     context['blogs']= blogs
 
 
 
-    return render(request, 'index_2.html',context)
+    return render(request, 'index_blog.html',context)
 
     ## Here, when passing the template name, it will detect it from anyhere. Case sensitive
 

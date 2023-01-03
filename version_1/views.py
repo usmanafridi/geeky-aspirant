@@ -31,7 +31,7 @@ def index(request):
     """This function is written so that I can test how to write post text and get it to the backend of our system"""
     
         
-    return render(request, 'index.html')
+    return render(request, 'index_2.html')
 
 
 def outline(request):

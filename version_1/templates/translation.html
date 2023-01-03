@@ -24,8 +24,14 @@
         <div class="container shadow-lg" data-aos="fade-up">
         <div class="row">
           <div class="border-div col-lg-12">              
-              <button type="button" class="btn tab-btn border-0" disabled>Modes:</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
+            
+            <a href="{% url 'comprehension' %}">
+              <button type="button" class="btn tab-btn border-0" disabled>Comprehension</button>
+            </a>
+            
+            <a href="{% url 'speech' %}">
+              <button type="button" class="btn tab-btn hvr-underline-from-center">Speech Change</button>
+            </a>
               <button type="button" class="btn tab-btn hvr-underline-from-center">Fluency</button>
               <button type="button" class="btn tab-btn hvr-underline-from-center">Formal</button>
               <button type="button" class="btn tab-btn hvr-underline-from-center">Simple</button>

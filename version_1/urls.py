@@ -7,10 +7,10 @@ urlpatterns = [
     # path("check", views.index),
     path("grammar", views.grammar_correction, name="grammar"),
     path("summary", views.text_summarizer, name="summary"),
-    path("sentence", views.word_mean_sentence),
+    path("sentence", views.word_mean_sentence, name="sentence"),
     path("", views.index),
     path("syn_ant", views.syn_anto, name="synonym"),
-    path("fill", views.fill_the_blank),
+    path("fill", views.fill_the_blank, name="fillblanks"),
     path("translate", views.translate, name="translate"),
     path("comprehension", views.comprehension_updated, name="comprehension"),
     path("speech", views.speech_change, name="speech"),
@@ -45,7 +45,8 @@ urlpatterns = [
 ## Make the text look more visually appealing. Also, change the Icons, and the UI of the web to make it look more attractive.
 
 
-## Add the blog post, so that different posts are there.
+## Add Recaptcha to cancel bots.
+
 
 
 ## Add the contact form, so that the user complains can be listened to.
@@ -61,3 +62,45 @@ urlpatterns = [
 ## Link for the website from which the contact form was taken. 
 
 ## https://learndjango.com/tutorials/django-email-contact-form
+
+
+
+######
+
+# BLOGS
+###
+
+# About the blog, include the slug, and also the sub title, which will be shown with the blog. And when clicked, the details should be there.
+# The slug will be shown in the website.
+# Add pagination for the blogs, so that previous blogs can be seen.
+# Add keywords on the side, so that blogs relevant to that Keyword are displayed when clicked.
+# The blogs should be in descending order (chieved!)
+
+
+
+##### 
+# BOOTSTRAP TEMPLATE
+####
+
+
+# Change the theme of the template to make it simple and elegant
+# Remove unncessary things.
+
+
+
+
+###
+# CONTACT DETAILS
+####
+
+# Add it so that users can provide their valuable suggestion about the website.
+
+
+
+
+###
+# EMAIL SUBSCRIPTION
+### 
+
+# Add a 1 line email subscription so that subsriptions are made. Store it in the data.
+
