@@ -231,8 +231,8 @@ def translate(request):
         
         "translation":translation
     }
-        return render(request, 'translation.html', context)        
-    return render(request, 'translation.html')
+        return render(request, 'translation_new.html', context)        
+    return render(request, 'translation_new.html')
 
 
 
@@ -457,6 +457,11 @@ def contactView(request):
 
 def successView(request):
     return HttpResponse("Success! Thank you for your message.")
+
+
+
+
+
 
 
 

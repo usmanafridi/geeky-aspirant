@@ -65,6 +65,14 @@ urlpatterns = [
 
 
 
+
+####
+# URGENT WORK TO BE DONE
+##
+
+# Integrate it with the latest theme.
+
+
 ######
 
 # BLOGS
