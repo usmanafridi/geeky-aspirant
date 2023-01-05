@@ -91,7 +91,7 @@ urlpatterns = [
 # The blogs should be in descending order (chieved!)
 # Also, add pagination in the start, so that things are simple. (Simple is better)
 
-
+# Good resource : https://www.codesnail.com/django-blog-tutorial/
 
 ##### 
 # BOOTSTRAP TEMPLATE
