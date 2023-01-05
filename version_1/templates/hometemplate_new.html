@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -31,29 +32,34 @@
     <link href="{% static 'assets_2/css/style.css' %}" rel="stylesheet">
 
 
-    <style> 
-  
 
-        .textbox {
-          width: 45%;
-          padding: 12px 20px;
-          margin: 8px 0;
-          box-sizing: border-box;
-          border: 2px solid #ccc;
-          border-radius: 4px;
-          background-color: #f8f8f8;
-          float: left;
-          margin: 10px;
-          height: 500px;
-        }
-      
-      input[type="text"] {
-          direction: ltr;
-          text-align: start;
-        }
-          
-          </style>
 
+<!-- Thsi is for the other bootstrap -->
+
+
+
+
+
+<!-- Vendor CSS Files -->
+<link href="{% static 'assets_3/vendor/aos/aos.css" rel="stylesheet" />
+<link
+  href="{% static 'assets_3/vendor/bootstrap/css/bootstrap.min.css' %}"
+  rel="stylesheet"
+/>
+<link
+  href="{% static 'assets_3/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+  rel="stylesheet"
+/>
+<link href="{% static 'assets_3/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet" />
+<link
+  href="{% static 'assets_3/vendor/glightbox/css/glightbox.min.css' %}"
+  rel="stylesheet"
+/>
+<link href="{% static 'assets_3/vendor/remixicon/remixicon.css' %}" rel="stylesheet" />
+<link href="{% static 'assets_3/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet" />
+
+<!-- Main CSS File -->
+<link href="{% static 'assets_3/css/style.css' %}" rel="stylesheet" />
 </head>
 
 <body>
@@ -202,6 +208,21 @@
 
 <!-- Template Main JS File -->
 <script src="{% static 'assets_2/js/main.js' %}"></script>
+
+
+<!-- This is for another template -->
+
+ <!-- Vendor JS Files -->
+ <script src="{% static 'assets_3/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+ <script src="{% static 'assets_3/vendor/aos/aos.js' %}"></script>
+ <script src="{% static 'assets_3/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+ <script src="{% static 'assets_3/vendor/glightbox/js/glightbox.min.js' %}"></script>
+ <script src="{% static 'assets_3/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+ <script src="{% static 'assets_3/vendor/swiper/swiper-bundle.min.js' %}"></script>
+ <script src="{% static 'assets_3/vendor/php-email-form/validate.js' %}"></script>
+
+ <!-- Template Main JS File -->
+ <script src="{% static 'assets_3/js/main.js' %}"></script>
 
 </body>
 

@@ -1,80 +1,55 @@
-{% extends "hometemplate_new.html" %}
-{% load static %}
+!<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+
+<html>
 
 
 
-{% block content %}
+<body>
 
-
-     
-          
-          
-         <main id="main"> 
-        <!-- ======= About Section ======= -->
-      <section id="about" class="about">
-        <div class="container shadow-lg" data-aos="fade-up">
-        <div class="row">
-          <div class="border-div col-lg-12">
-              
-              <button type="button" class="btn tab-btn border-0" disabled>Modes:</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Fluency</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Formal</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Simple</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Creative</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Expand</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Shorten</button> Synonyms:</button>
-              <input type="range" class="form-range" id="customRange1"><i class="bi bi-gem hira"></i>
-          </div>
-          
-
-          <form id="myForm" method="post">
-        {% csrf_token %}
-
-          <div class="col-lg-6 order-2 order-lg-1 content m-0 p-0" data-aos="fade-right" data-aos-delay="100">
-              <textarea class="textarea-1 p-2" name="text" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button."></textarea>
-                  
-
-                  <label for="file-input">
-                        
-
-                        <input type="radio" name="lang" value="Urdu">Urdu </input>
-                        <input type="radio" name="lang" value="Hindi">Hindi </input>
-                        <input type="radio" name="lang" value="English">English </input>
-                  
-                  </label>
-                  <input id="file-input" type="file" class="image-upload" />
-              
-
-              <button type="submit" class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root quillArticleBtn css-1r3yqip para-btn" tabindex="0" type="button">
-                Paraphrase
-              </button>
-          
-          </div>
-
-
-         
-            
-            
+  <div id="target">
+    <!-- This is the element where the pasted text will be inserted -->
+  </div>
   
-            
-            </form>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 m-0 p-0" data-aos="fade-left" data-aos-delay="100">
-              <textarea class="textarea-1 p-2" name="output" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{translation}}</textarea>
-      
-          </div>
+  <button id="paste-button">Paste</button>
+  <button id="copy-button">Copy</button>
+  
+  <script>
+    // Get references to the buttons and the target element
+    const pasteButton = document.getElementById('paste-button');
+    const copyButton = document.getElementById('copy-button');
+    const target = document.getElementById('target');
+  
+    // Add an event listener to the paste button that listens for the 'click' event
+    pasteButton.addEventListener('click', function() {
+      // When the paste button is clicked, read the text from the clipboard
+      // using the navigator.clipboard.readText() method
+      navigator.clipboard.readText()
+        .then(text => {
+          // When the text has been retrieved from the clipboard,
+          // insert it into the target element
+          target.textContent = text;
+        })
+        .catch(err => {
+          console.error('Failed to read clipboard contents: ', err);
+        });
+    });
+  
+    // Add an event listener to the copy button that listens for the 'click' event
+    copyButton.addEventListener('click', function() {
+      // When the copy button is clicked, write the text from the target element
+      // to the clipboard using the navigator.clipboard.writeText() method
+      navigator.clipboard.writeText(target.textContent)
+        .then(() => {
+          console.log('Text copied to clipboard');
+        })
+        .catch(err => {
+          console.error('Failed to copy text to clipboard: ', err);
+        });
+    });
+  </script>
+  
 
-        </div>
-
-      </div>
-
-      </section>
-      <!-- End About Section -->
-
-        
-      
-  </main><!-- End #main -->
-
-
-{% endblock %}
+</body>
+</html>
