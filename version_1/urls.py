@@ -72,6 +72,8 @@ urlpatterns = [
 
 # Integrate it with the latest theme.
 
+# Do one thing. Make a separate template in the main directory so that there is no confusion left.
+
 
 ######
 
