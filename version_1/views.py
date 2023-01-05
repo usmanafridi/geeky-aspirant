@@ -231,8 +231,8 @@ def translate(request):
         
         "translation":translation
     }
-        return render(request, 'translation_new.html', context)        
-    return render(request, 'translation_new.html')
+        return render(request, 'inner_page.html', context)        
+    return render(request, 'inner_page.html')
 
 
 

@@ -75,6 +75,10 @@ urlpatterns = [
 # Do one thing. Make a separate template in the main directory so that there is no confusion left.
 
 
+# I used Google Auth to register new users, and allow them to use services. But I need to check if I can fetch their metadata as well.
+
+# Website used for Google authentication: https://www.codesnail.com/google-authentication-in-django/
+
 ######
 
 # BLOGS
@@ -85,6 +89,7 @@ urlpatterns = [
 # Add pagination for the blogs, so that previous blogs can be seen.
 # Add keywords on the side, so that blogs relevant to that Keyword are displayed when clicked.
 # The blogs should be in descending order (chieved!)
+# Also, add pagination in the start, so that things are simple. (Simple is better)
 
 
 

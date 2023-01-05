@@ -1,0 +1,49 @@
+{% extends "hometemplate_new.html" %}
+{% load static %}
+
+
+
+{% block content %}
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Inner Page</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Inner Page</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container">
+        <p>
+          Example inner page template
+        </p>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  
+<!-- Vendor JS Files -->
+<script src="{% static 'assets_2/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'assets_2/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets_2/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets_2/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets_2/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets_2/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets_2/vendor/php-email-form/validate.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'assets_2/js/main.js' %}"></script>
+
+</body>
+
+{% endblock %}
