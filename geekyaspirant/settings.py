@@ -128,6 +128,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 
+## THIS FOR GOOGLE
+
+## This lets you store the email address of the user in the database as well.
+ACCOUNT_EMAIL_REQUIRED =True
+
 ###This for Email Contact:
 
 

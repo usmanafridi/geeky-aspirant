@@ -75,7 +75,7 @@ urlpatterns = [
 # Do one thing. Make a separate template in the main directory so that there is no confusion left.
 
 
-# I used Google Auth to register new users, and allow them to use services. But I need to check if I can fetch their metadata as well.
+# I used Google Auth to register new users, and allow them to use services. But I need to check if I can fetch their metadata as well. (Achieved)
 
 # Website used for Google authentication: https://www.codesnail.com/google-authentication-in-django/
 
