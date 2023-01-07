@@ -1,5 +1,4 @@
-
-{% extends "hometemplate.html" %}
+{% extends "hometemplate_new.html" %}
 {% load static %}
 
 
@@ -10,6 +9,19 @@
 
 
     <main id="main">
+      
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>TRANSLATION</h2>
+          
+        </div>
+
+      </div>
+    </section>
+
       <!-- ======= About Section ======= -->
    
   <section id="about" class="about">
@@ -40,16 +52,18 @@
           
           <div class="col-lg-6 content m-0 p-0" data-aos="fade-right" data-aos-delay="100">
               <textarea class="textarea-1 p-2" name= "text" placeholder="Input here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button."></textarea>
-              <div class="col-lg-6 col-md-7 col-sm-12 icodiv">
-                  <label for="file-input" class="fileinput">
-                       <input type="radio" name="lang" value="Urdu">Urdu </input>
-                        <input type="radio" name="lang" value="Hindi">Hindi </input>
-                        <input type="radio" name="lang" value="English">English </input>
-                  </label>
-              </div>
-              <div class="col-lg-6 col-md-5 col-sm-12 parbtn-div">
-                <button class="btn bt-sm me-4 parbtn"style="">Translate</button>
-              </div>
+              
+<div class="col-lg-6 col-md-7 col-sm-12 icodiv">
+<h4>Translate in : </h4>
+<button type="radio" name="lang" class="btn btn-primary" value="Urdu">اردو</button>
+<button type="radio" name="lang" class="btn btn-secondary" value="English">English</button>
+<button type="radio" name="lang" class="btn btn-success" value="Hindi">हिंदी</button>
+    </div>
+
+
+
+
+      
           </div>
           <div class="col-lg-6 m-0 p-2 bordrbttm" data-aos="fade-left" data-aos-delay="100">
               <textarea class="textarea-1" name= "output" placeholder="Output here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{translation}}</textarea>

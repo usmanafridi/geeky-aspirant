@@ -9,6 +9,17 @@
 
 
     <main id="main">
+      <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>SYNONYMS AND ANTONYMS</h2>
+          
+        </div>
+
+      </div>
+    </section>
+
       <!-- ======= About Section ======= -->
    
   <section id="about" class="about">
@@ -42,7 +53,12 @@
               </div>
           </div>
           <div class="col-lg-6 m-0 p-2 bordrbttm" data-aos="fade-left" data-aos-delay="100">
-              <textarea class="textarea-1 p-2" name= "outpuy" placeholder="Output here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{word_meaning}} {{br}} {{word_synonym}}</textarea>
+              
+              {% if word_synonym %}
+
+              <textarea class="textarea-1 p-2" name= "output" placeholder="Output here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">Meaning: {{word_meaning}} Synonym: {{word_synonym}} {{br}} Antonym: {{word_antonym}}</textarea>
+          
+                {% endif %}
           </div>
 
         </div>

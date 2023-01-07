@@ -181,7 +181,7 @@ def fill_the_blank(request):
         return render(request, 'blanks.html', context)        
     return render(request, 'blanks.html')
 
-
+@ratelimit(key='ip', rate='3/m')
 def translate(request):
 
     """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
@@ -231,8 +231,8 @@ def translate(request):
         
         "translation":translation
     }
-        return render(request, 'inner_page.html', context)        
-    return render(request, 'inner_page.html')
+        return render(request, 'translation.html', context)        
+    return render(request, 'translation.html')
 
 
 
