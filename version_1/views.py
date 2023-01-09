@@ -229,7 +229,8 @@ def translate(request):
         
         context = {           
         
-        "translation":translation
+        "translation":translation,
+        "text":text
     }
         return render(request, 'translation.html', context)        
     return render(request, 'translation.html')
@@ -426,7 +427,8 @@ def speech_change(request):
     
         context = {           
         
-        "speech_result":speech_change
+        "speech_result":speech_change,
+        "text":text
     }
         return render(request, 'direct_indirect.html', context)        
     return render(request, 'direct_indirect.html')

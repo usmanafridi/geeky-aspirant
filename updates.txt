@@ -23,7 +23,7 @@ Page navigation to the billing or username section, once the limit is achieved. 
 
 
 Done:
-The bootstrap conflict theme is done
+The bootstrap conflict theme is done.
 
 
 ERRORS:
