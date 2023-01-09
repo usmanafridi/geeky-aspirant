@@ -4,17 +4,22 @@ Update te=he template
 
 
 Things remaing:
-Redirecting after rate limite achivend
-Comprehesion page left
+Redirecting after rate limite achieved.
+Comprehesion page left.
 Other small changes like button colors.
 Including information about the web page on the first page.(SEO)
 Need to modify the GPT-3 models and prompts and integrating it into the web application.
-
+Changing the comrehnsion and looking for ways how can questions be written in it.
 Need to change the output and the input text, and how it will appear in the text box.
-
 Captcha is remaining.
-
 Billing section is remaining. Need to connect with a billing system.
+Move FAQ to the lowest of the page.
 
 Done:
 The bootstrap conflict theme is done
+
+
+ERRORS:
+Mobile screen exceeds when a lot of text is written. Improve that.
+
+
