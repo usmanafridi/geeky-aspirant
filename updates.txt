@@ -15,6 +15,13 @@ Captcha is remaining.
 Billing section is remaining. Need to connect with a billing system.
 Move FAQ to the lowest of the page.
 
+Dont reload the page, but retain the text (Slightly done)
+
+Page navigation to the billing or username section, once the limit is achieved. (triggering)
+
+
+
+
 Done:
 The bootstrap conflict theme is done
 
