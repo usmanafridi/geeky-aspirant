@@ -7,11 +7,14 @@ Things remaing:
 Redirecting after rate limite achivend
 Comprehesion page left
 Other small changes like button colors.
-Including information about the web page on the first page.
-Mobile screen issue persists.
+Including information about the web page on the first page.(SEO)
+Need to modify the GPT-3 models and prompts and integrating it into the web application.
 
 Need to change the output and the input text, and how it will appear in the text box.
 
 Captcha is remaining.
 
 Billing section is remaining. Need to connect with a billing system.
+
+Done:
+The bootstrap conflict theme is done
