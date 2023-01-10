@@ -9,6 +9,7 @@ from .forms import ContactForm
 from django.shortcuts import render, redirect
 from django_ratelimit.decorators import ratelimit
 from django_ratelimit.core import get_usage, is_ratelimited
+from django.contrib.auth.decorators import login_required
 
 openai.api_key = "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"
 
@@ -49,7 +50,8 @@ def outline(request):
         #By specifying the name of the context in the html, it will display the results.
         
         context = {           
-        "htmltext": text_response
+        "htmltext": text_response,
+        "text":text
     }
        
         return render(request, 'outline.html', context)
@@ -95,6 +97,7 @@ def text_summarizer(request):
         context = {           
         "correctsummary": text_summary,
         "correcttitle": title,
+        "text":text
 
     }
        
@@ -124,6 +127,7 @@ def word_mean_sentence(request):
         context = {           
         "word_meaning": word_meaning,
         "word_sentence": word_sentence,
+        "text":text
     }       
         return render(request, 'sentences.html', context)
     return render(request, 'sentences.html')
@@ -153,6 +157,7 @@ def syn_anto(request):
         "word_synonym": word_synonym,
         "word_antonym": word_antonym,
         "word_meaning":word_meaning,
+        "text":text
        
 
     }
@@ -187,9 +192,6 @@ def translate(request):
 
     """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
     translation of GPT-3 is not that accurate, comparatively, that of Google is better. """
-    
-  
-
     
     
     if request.method == 'POST':
@@ -411,7 +413,7 @@ def comprehension_updated(request):
     return render(request, 'comprehension.html')
 
     
-
+@login_required
 def speech_change(request):
 
     """This function is to change the speech into direct and indirect """
