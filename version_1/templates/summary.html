@@ -16,7 +16,7 @@
         {% csrf_token %}
     
 
-        <div class="container shadow-lg" data-aos="fade-up">
+        <div class="container shadow-lg">
         <div class="row">
           <div class="border-div col-lg-12">              
               <button type="button" class="btn tab-btn border-0" disabled>Modes:</button>
@@ -41,13 +41,15 @@
                 <button class="btn bt-sm me-4 parbtn"style="">Paraphrase</button>
               </div>
           </div>
-          <div class="col-lg-6 m-0 p-2 bordrbttm" data-aos="fade-left" data-aos-delay="100">
-              <textarea class="textarea-1 p-2" name= "outpuy" placeholder="Output here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">
-{% if correcttitle  %}
+          <div class="col-lg-6 m-0 p-2 bordrbttm" >
+              <textarea class="textarea-1 m-0 p-0" name= "output" placeholder="Output here 
+              QuillBot will rewrite your text. Start by writing or 
+              pasting something here and then press the Paraphrase button.">
+              
+              {% if correcttitle  %}
               Summary:{{correctsummary}} {{br}} Title:{{correcttitle}}  
 
-
-          {% endif %}</textarea>
+              {% endif %}</textarea>
           </div>
 
         </div>

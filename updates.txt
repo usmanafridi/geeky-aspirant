@@ -20,10 +20,14 @@ Dont reload the page, but retain the text (Slightly done)
 Page navigation to the billing or username section, once the limit is achieved. (triggering)
 
 
+REDIRECTION IF ACCESSED MORE THAN A PARTICULAR NUMBER:
+
+Do this as it is important.
 
 
-Done:
-The bootstrap conflict theme is done.
+PAYMENT GATEWAY:
+Can be added later. Dont focus on it.
+
 
 
 ERRORS:

@@ -30,7 +30,7 @@
 <form method="post">
         {% csrf_token %}
 
-        <div class="container shadow-lg" data-aos="fade-up">
+        <div class="container shadow-lg">
         <div class="row">
           <div class="border-div col-lg-12">
               
@@ -44,7 +44,7 @@
               <button type="button" class="btn tab-btn hvr-underline-from-center">Shorten</button> Synonyms:</button>
               <input type="range" class="form-range" id="customRange1"><i class="bi bi-gem hira"></i>
           </div>
-          <div class="col-lg-6 order-2 order-lg-1 content m-0 p-0" data-aos="fade-right" data-aos-delay="100">
+          <div class="col-lg-6 order-2 order-lg-1 content m-0 p-0" >
               
               <h2>Write Text</h2>
               <textarea style="font-size: 50px; color: blue;" class="textarea-1 p-2" name="text" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button."></textarea>
@@ -64,9 +64,11 @@
           </div>
  
 
-          <div class="col-lg-6 order-1 order-lg-2 m-0 p-2 bordrbttm" data-aos="fade-left" data-aos-delay="100">
+          <div class="col-lg-6 order-1 order-lg-2 m-0 p-0 bordrbttm" >
               <h2>Write Questions</h2>
-              <textarea class="textarea-1 p-2" name="textbox_question" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button."> </textarea>
+              <textarea class="textarea-1 p-2" name="textbox_question" placeholder="QuillBot will 
+              rewrite your text. Start by writing or pasting something here and then 
+              press the Paraphrase button."> </textarea>
           
                 <label for="file-input">
                   <i class="bi bi-cloud-upload iconlgnone"></i> <span class="upload-doc iconlgnone"> Upload Doc</span>
@@ -89,12 +91,14 @@
     
 <section id="about" class="about">
 
-  <div class="container shadow-lg" data-aos="fade-up">
+  <div class="container shadow-lg">
     <h2>Answers</h2>
         
   
-    <div class=" row col-lg-6 order-1 order-lg-2 m-0 p-2 bordrbttm" data-aos="fade-left" data-aos-delay="100">
-              <textarea class="textarea-1 p-2" name="output" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button."> {{answers}} </textarea>
+    <div class=" row col-lg-6 order-1 order-lg-2 m-0 p-0 bordrbttm" >
+      <textarea class="textarea-1 m-0 p-0" name="output" placeholder="QuillBot will 
+      rewrite your text. Start by writing or pasting something here 
+      and then press the Paraphrase button."> {{answers}} </textarea>
           
           
       

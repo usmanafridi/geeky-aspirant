@@ -50,7 +50,7 @@
           </div>
           
           <div class="col-lg-6 content m-0 p-0" >
-              <textarea id="textarea" class="textarea-1 p-2" name= "text" placeholder="Input here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{text}}</textarea>
+              <textarea class="textarea-1 p-2" name= "text" placeholder="Input here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{text}}</textarea>
               
 <div class="col-lg-6 col-md-7 col-sm-12 icodiv">
 <h4>Translate in : </h4>
@@ -64,8 +64,8 @@
 
       
           </div>
-          <div class="col-lg-6 m-0 p-2 bordrbttm" >
-              <textarea class="textarea-1" name= "output" placeholder="Output here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{translation}}</textarea>
+          <div class="col-lg-6 m-0 p-0 bordrbttm" >
+              <textarea class="textarea-1 p-2" name= "output" placeholder="Output here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{translation}}</textarea>
           </div>
 
         </div>
@@ -80,20 +80,6 @@
           span.innerHTML = range.value;
         }
        
-
-//   // Get the text in the textarea
-// var text = document.getElementsByClassName("textarea-1 p-2").value;
-
-// // Store the text in the local storage
-// localStorage.setItem("text", text);
-
-// // ...
-
-// // Retrieve the text from the local storage
-// var text = localStorage.getItem("text");
-
-// // Set the value of the textarea to the stored value
-// document.getElementsByClassName("textarea-1 p-2").value = text;
 
 </script>
 
