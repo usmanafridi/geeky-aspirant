@@ -169,5 +169,16 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = '/login/'
 
-
+## This is to redirect to a particular view function when the rate limit is achieved
 RATELIMIT_VIEW = 'version_1.views.rate_limit_reached'
+
+
+###### MULTIPLE RATE LIMIT VIEWS CAN BE ACHIEVED BY FOLLOWING ######
+
+
+# RATELIMIT_VIEW = {
+#    'myapp.views.view_1': 'myapp.views.rate_limit_reached_1',
+#    'myapp.views.view_2': 'myapp.views.rate_limit_reached_2', }
+
+
+####################################################################

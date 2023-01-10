@@ -34,7 +34,7 @@ def index(request):
         
     return render(request, 'index_2.html')
 
-
+@ratelimit(key='ip', rate='3/d')
 def outline(request):
     """This function is to create outline of a text provided by the user"""
     
