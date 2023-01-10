@@ -59,6 +59,7 @@ MIDDLEWARE = [
   
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django_ratelimit.middleware.RatelimitMiddleware',
 ]
 
 ROOT_URLCONF = "geekyaspirant.urls"
@@ -167,3 +168,6 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = '/login/'
+
+
+RATELIMIT_VIEW = 'version_1.views.rate_limit_reached'

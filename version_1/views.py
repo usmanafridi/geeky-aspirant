@@ -8,6 +8,7 @@ from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
 from django.shortcuts import render, redirect
 from django_ratelimit.decorators import ratelimit
+from django_ratelimit.core import get_usage, is_ratelimited
 
 openai.api_key = "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"
 
@@ -375,22 +376,25 @@ def comprehension(request):
 
 
 
+## This function will be called when the rate limit is exceeded,
+def rate_limit_reached(request, exception):
+    return HttpResponse("Your rate limit has been reached")
+
+
 ### The comprehension questions can be dealt in two ways. 
   ## One way is to ask the questions from a given passage.
   ## Another one is to fill in the blanks.
   ## The updated one, I have included to incude fill in the blanks, the above when is for questions.
   ## But a great care must be taken in the Prompt selection, as everything depends on that.
 
-@ratelimit(key='ip', rate='4/m')
+@ratelimit(key='ip', rate='2/m')
 def comprehension_updated(request):
-    
-    
-    if request.method == 'POST':
+
+    if request.method == 'POST': 
         text = request.POST['text']  #The text we will write
- 
+
         #return words in the blanks
         questions= request.POST['textbox_question']
-
 
         answers= gpt3(f"Fill the blank in {questions} from the {text} " )
         
@@ -399,8 +403,9 @@ def comprehension_updated(request):
         
         "answers":answers
     }
-        return render(request, 'comprehension.html', context)       
+        return render(request, 'comprehension.html', context)  
     
+        # Check if the rate limit has been reache
     
     
     return render(request, 'comprehension.html')
