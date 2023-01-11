@@ -1,10 +1,10 @@
 Some cahnges made.
-Update te=he template
+Update the template
 
 
 
 Things remaing:
-Redirecting after rate limite achieved.
+Redirecting after rate limite achieved. (Done)
 Comprehesion page left.
 Other small changes like button colors.
 Including information about the web page on the first page.(SEO)
@@ -15,14 +15,14 @@ Captcha is remaining.
 Billing section is remaining. Need to connect with a billing system.
 Move FAQ to the lowest of the page.
 
-Dont reload the page, but retain the text (Slightly done)
+Dont reload the page, but retain the text (Done)
 
-Page navigation to the billing or username section, once the limit is achieved. (triggering)
+Page navigation to the billing or username section, once the limit is achieved. (Done)
 
 
 REDIRECTION IF ACCESSED MORE THAN A PARTICULAR NUMBER:
 
-Do this as it is important.
+Do this as it is important. (Done)
 
 
 PAYMENT GATEWAY:
@@ -34,3 +34,4 @@ ERRORS:
 Mobile screen exceeds when a lot of text is written. Improve that.
 
 
+ADD PARAPHRASING SECTION, AND TEXT SUMMARIZER

@@ -10,8 +10,44 @@ from django.shortcuts import render, redirect
 from django_ratelimit.decorators import ratelimit
 from django_ratelimit.core import get_usage, is_ratelimited
 from django.contrib.auth.decorators import login_required
+from django.contrib.sessions.middleware import SessionMiddleware
+from django.core.cache import cache
+from datetime import datetime, timedelta
+
 
 openai.api_key = "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"
+
+
+
+### Using Cache
+
+def my_view_cache(request):
+    key = f"user:{request.user.id}"
+    remaining = cache.get(key)
+    reset_time = cache.get(key+"_reset")
+    if remaining is None:
+        remaining = 3
+        reset_time = datetime.now() + timedelta(hours=1)
+    else:
+        remaining -= 1
+        reset_time = cache.get(key+"_reset")
+    cache.set(key, remaining, (reset_time - datetime.now()).seconds)
+    cache.set(key+"_reset", reset_time)
+    return render(request, 'my_template.html', {'attempts_left': remaining,'reset_time': reset_time})
+
+
+
+## This is to handle the sessions and give the user about how many times he can access the web page. But it is for the overall pages.
+def attempts_left(request):
+    session = request.session
+    if 'page_counter' not in session:
+        session['page_counter'] = 0
+    session['page_counter'] += 1
+    if session['page_counter'] > 3:
+        return redirect('outline.html')
+    else:
+        attempts_left = 3 - session['page_counter']
+        return render(request, 'my_template.html', {'attempts_left': attempts_left})
 
 
 def gpt3(prompt):
@@ -187,14 +223,31 @@ def fill_the_blank(request):
         return render(request, 'blanks.html', context)        
     return render(request, 'blanks.html')
 
-@ratelimit(key='ip', rate='3/m')
+@ratelimit(key='ip', rate='5/m')
 def translate(request):
 
     """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
     translation of GPT-3 is not that accurate, comparatively, that of Google is better. """
-    
-    
+   
+   
     if request.method == 'POST':
+        
+        ## This is to get the number of clicks
+        key = f"user:{request.user.id}"
+        remaining = cache.get(key)
+        reset_time = cache.get(key+"_reset")
+        if remaining is None:
+            remaining = 4
+            reset_time = datetime.now() + timedelta(hours=1)
+        else:
+            remaining -= 1
+            reset_time = cache.get(key+"_reset")
+        cache.set(key, remaining, (reset_time - datetime.now()).seconds)
+        cache.set(key+"_reset", reset_time)
+
+        
+        
+        
         text = request.POST['text']  #The text we will write
         
         vol = request.POST['vol']
@@ -233,10 +286,19 @@ def translate(request):
         context = {           
         
         "translation":translation,
-        "text":text
+        "text":text,
+        'attempts_left': remaining,
+        'reset_time': reset_time
     }
         return render(request, 'translation.html', context)        
+    
+    
+    
+    
     return render(request, 'translation.html')
+    
+    
+    
 
 
 
@@ -413,7 +475,7 @@ def comprehension_updated(request):
     return render(request, 'comprehension.html')
 
     
-@login_required
+@login_required(redirect_field_name='my_redirect_field')
 def speech_change(request):
 
     """This function is to change the speech into direct and indirect """

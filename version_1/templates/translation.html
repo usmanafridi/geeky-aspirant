@@ -15,7 +15,10 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>TRANSLATION</h2>
-          
+          {% if attempts_left %}
+          <p>You have {{ attempts_left }} attempts left to access this page.</p>
+            {% endif %}
+         
         </div>
 
       </div>

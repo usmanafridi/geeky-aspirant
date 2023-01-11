@@ -19,6 +19,9 @@ urlpatterns = [
     
     path("contact/", views.contactView, name="contact"),
     path("success/", views.successView, name="success"),
+    path("sessions/", views.attempts_left, name="sessions"),
+    path("cache/", views.my_view_cache, name="cache"),
+
 
 ]
 
