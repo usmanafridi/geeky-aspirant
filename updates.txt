@@ -4,8 +4,12 @@ Update the template
 
 
 Things remaing:
+
+Make a flow of how the user is going to use the website (Login, etc)
+Add the contact section so that user can send you email about any improvement about the web.
+Add subscription link in the website.
 Redirecting after rate limite achieved. (Done)
-Comprehesion page left.
+Comprehesion page left. (Make improvements)
 Other small changes like button colors.
 Including information about the web page on the first page.(SEO)
 Need to modify the GPT-3 models and prompts and integrating it into the web application.
@@ -35,3 +39,5 @@ Mobile screen exceeds when a lot of text is written. Improve that.
 
 
 ADD PARAPHRASING SECTION, AND TEXT SUMMARIZER
+
+ADD VIDEO ABOUT HOW TO USE THIS TOOL:
