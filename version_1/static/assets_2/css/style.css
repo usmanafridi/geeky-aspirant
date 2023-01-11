@@ -2282,6 +2282,7 @@ color: black;
   resize: none;
   margin: 0;
   outline: none;
+  color: red;
 } 
 
 .textarea-2{
@@ -2297,6 +2298,7 @@ color: black;
   margin: 0;
   margin-left: 10px;
     outline: none;
+   
 
 }
 .css-1r3yqip.css-1r3yqip.quillArticleBtn {

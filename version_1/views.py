@@ -19,21 +19,25 @@ openai.api_key = "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"
 
 
 
-### Using Cache
-
-def my_view_cache(request):
+## Helper function for Cache counter.
+def cache_counter(request, turns_remaing = 3 ):
     key = f"user:{request.user.id}"
     remaining = cache.get(key)
-    reset_time = cache.get(key+"_reset")
     if remaining is None:
-        remaining = 3
-        reset_time = datetime.now() + timedelta(hours=1)
+        remaining = turns_remaing
     else:
         remaining -= 1
-        reset_time = cache.get(key+"_reset")
-    cache.set(key, remaining, (reset_time - datetime.now()).seconds)
-    cache.set(key+"_reset", reset_time)
-    return render(request, 'my_template.html', {'attempts_left': remaining,'reset_time': reset_time})
+        
+    cache.set(key, remaining)
+    
+    return remaining
+
+
+### Using Cache
+def my_view_cache(request):
+    
+    remaining= cache_counter(request, turns_remain= 5 )
+    return render(request, 'my_template.html', {'attempts_left': remaining})
 
 
 
@@ -232,18 +236,7 @@ def translate(request):
    
     if request.method == 'POST':
         
-        ## This is to get the number of clicks
-        key = f"user:{request.user.id}"
-        remaining = cache.get(key)
-        reset_time = cache.get(key+"_reset")
-        if remaining is None:
-            remaining = 4
-            reset_time = datetime.now() + timedelta(hours=1)
-        else:
-            remaining -= 1
-            reset_time = cache.get(key+"_reset")
-        cache.set(key, remaining, (reset_time - datetime.now()).seconds)
-        cache.set(key+"_reset", reset_time)
+        remaining= cache_counter(request, turns_remaing = 3 )
 
         
         
@@ -252,7 +245,6 @@ def translate(request):
         
         vol = request.POST['vol']
         print(vol)
-        
         
         lang_type = request.POST.get('lang')
 
@@ -288,7 +280,7 @@ def translate(request):
         "translation":translation,
         "text":text,
         'attempts_left': remaining,
-        'reset_time': reset_time
+        
     }
         return render(request, 'translation.html', context)        
     
