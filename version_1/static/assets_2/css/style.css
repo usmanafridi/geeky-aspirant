@@ -2012,13 +2012,13 @@ section {
   padding-top: 30px !important;
 }
 .bordrbttm{
-  border-bottom: 2px solid darkgray;
+  border-bottom: 2px solid rgb(12, 1, 1);
 }
 .btnsm{
   display: none !important;
 }
 .bordrbttm{
-  border-top: 4px solid #ccc;
+  border-top: 4px solid rgb(7, 1, 1);
 }
 
 }
@@ -2035,7 +2035,7 @@ section {
   margin-left: 30px !important;
 }
 .bordrbttm{
-  border-bottom: 2px solid darkgray;
+  border-bottom: 2px solid rgb(11, 0, 0);
 }
 
 .btnsm{
