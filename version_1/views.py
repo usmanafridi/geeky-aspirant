@@ -110,13 +110,21 @@ def grammar_correction(request):
     if request.method == 'POST':
         
         text = request.POST['text']  #The text we will write
-       
+
+        if len(text) > 20:
+            
+            text = "Access limit has been reached. Please reduce words. The max number of words are ...."
+            correct_sentence= None
+        
+        else:
+            text= text
         #The context will return the grammatically correct sentence
-        correct_sentence= gpt3(f"Correct this to standard English:\n\n + {text}")
+            correct_sentence= gpt3(f"Correct this to standard English:\n\n + {text}")
         #By specifying the name of the context in the html, it will display the results.
         
         context = {           
-        "correctsentence": correct_sentence
+        "correctsentence": correct_sentence,
+        "text": text
     }
        
         return render(request, 'grammar.html', context)
