@@ -32,7 +32,7 @@
 
         <div class="container shadow-lg">
         <div class="row">
-          <div class="border-div col-lg-12">
+          <!-- <div class="border-div col-lg-12">
               
               <button type="button" class="btn tab-btn border-0" disabled>Modes:</button>
               <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
@@ -43,22 +43,18 @@
               <button type="button" class="btn tab-btn hvr-underline-from-center">Expand</button>
               <button type="button" class="btn tab-btn hvr-underline-from-center">Shorten</button> Synonyms:</button>
               <input type="range" class="form-range" id="customRange1"><i class="bi bi-gem hira"></i>
-          </div>
-          <div class="col-lg-6 order-2 order-lg-1 content m-0 p-0" >
+          </div> -->
+          <div class="col-lg-6 order-first order-lg-1 content m-0 p-0" >
               
               <h2>Write Text</h2>
               <textarea style="font-size: 50px; color: blue;" class="textarea-1 p-2" name="text" placeholder="QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button."></textarea>
-              <div class="lg-btn">
               
-
-              <button type="submit" class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root quillArticleBtn css-1r3yqip para-btn btnsm" tabindex="0" type="button">
-                Generate
-              </button>
-
-           
-
+              
+              <div class="col-lg-6 col-md-5 col-sm-12 parbtn-div">
+                <button type="submit" class="btn bt-sm me-4 parbtn"style="">Paraphrase</button>
               </div>
-
+              
+      
 
 
           </div>
@@ -70,47 +66,45 @@
               rewrite your text. Start by writing or pasting something here and then 
               press the Paraphrase button."> </textarea>
           
-                <label for="file-input">
-                  <i class="bi bi-cloud-upload iconlgnone"></i> <span class="upload-doc iconlgnone"> Upload Doc</span>
-                </label>
-            
-              
-            <button class="btn btn-sm minidisply">Hala </button>
+<!-- This is for the Radio Buttons so that the users can confirm the questions are in particular format. -->
+          <h6>Please specify the questions type</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">QUESTIONS</label>
           </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">BLANKS / MCQS</label>
+          </div>
+
+  </div>
 
       
        
 
-      <div id="textbox-container"></div>
+    
 </form>
 
+     
+</section>
 
-
-      </section>
-
-    
 <section id="about" class="about">
-
   <div class="container shadow-lg">
     <h2>Answers</h2>
         
   
-    <div class=" row col-lg-6 order-1 order-lg-2 m-0 p-0 bordrbttm" >
+    <div class=" row col-lg-6 order-last order-lg-2 m-0 p-0 bordrbttm" >
       <textarea class="textarea-1 m-0 p-0" name="output" placeholder="QuillBot will 
       rewrite your text. Start by writing or pasting something here 
       and then press the Paraphrase button."> {{answers}} </textarea>
           
-          
-      
+  </div>
 
-           </div>
-
-            </div>
+  </div>
+    
 </section>
-   
 
- 
-    </main>
+</main>
 
      
     <script>

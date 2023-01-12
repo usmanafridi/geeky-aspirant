@@ -642,12 +642,12 @@ section {
 .parbtn{
   float: right; 
   margin-top: 40px;
-  background: #111;
+  background: #2487ce;
   color: #fff;
   border-radius: 30px;
 }
 .parbtn:hover{
-  background: #000;
+  background: #124265;
   color: #fff;
   box-shadow: 3px 2px 8px gray; 
 }
@@ -2282,7 +2282,8 @@ color: black;
   resize: none;
   margin: 0;
   outline: none;
-  color: red;
+  color: rgb(48, 60, 115);
+  font-family: Arial, Helvetica, sans-serif;
 } 
 
 .textarea-2{
@@ -2388,12 +2389,12 @@ color: black;
     align-items: flex-start;
     cursor: default;
     box-sizing: border-box;
-    background-color: #000 !important;
+    background-color:#2487ce  !important;
     margin: 0em !important;
     margin-right: 1em !important;
     padding: 1px 6px !important;
     border-width: 2px;
-    border-style: outset;
+  
     border-color: buttonborder;
     border-image: initial;
 

@@ -40,6 +40,11 @@ def my_view_cache(request):
     return render(request, 'my_template.html', {'attempts_left': remaining})
 
 
+def check_bootstrap(request):
+    
+    return render(request, 'bootstrap_check.html')
+
+
 
 ## This is to handle the sessions and give the user about how many times he can access the web page. But it is for the overall pages.
 def attempts_left(request):
@@ -227,67 +232,67 @@ def fill_the_blank(request):
         return render(request, 'blanks.html', context)        
     return render(request, 'blanks.html')
 
-@ratelimit(key='ip', rate='5/m')
-def translate(request):
+# @ratelimit(key='ip', rate='5/m')
+# def translate(request):
 
-    """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
-    translation of GPT-3 is not that accurate, comparatively, that of Google is better. """
+#     """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
+#     translation of GPT-3 is not that accurate, comparatively, that of Google is better. """
    
    
-    if request.method == 'POST':
+#     if request.method == 'POST':
         
-        remaining= cache_counter(request, turns_remaing = 3 )
+#         remaining= cache_counter(request, turns_remaing = 3 )
 
         
         
         
-        text = request.POST['text']  #The text we will write
+#         text = request.POST['text']  #The text we will write
         
-        vol = request.POST['vol']
-        print(vol)
+#         vol = request.POST['vol']
+#         print(vol)
         
-        lang_type = request.POST.get('lang')
+#         lang_type = request.POST.get('lang')
 
-        if lang_type == 'Urdu':
-            lang="Urdu" 
-            ln="ur"
+#         if lang_type == 'Urdu':
+#             lang="Urdu" 
+#             ln="ur"
                 
-        elif lang_type == 'English':
-            lang="English"
-            ln="en" 
+#         elif lang_type == 'English':
+#             lang="English"
+#             ln="en" 
 
-        else:
-            lang="Hindi"
-            ln="hi"
+#         else:
+#             lang="Hindi"
+#             ln="hi"
             
         
-        #return the translation in Google.
-        if len(text) > 150:
+#         #return the translation in Google.
+#         if len(text) > 150:
 
-            translation= gpt3(f"Translate the following text in {lang}: \n\n {text} ")
-            print("Translation using GPT-3")
+#             translation= gpt3(f"Translate the following text in {lang}: \n\n {text} ")
+#             print("Translation using GPT-3")
         
-        else:
-            translator = Translator()
-            translations= translator.translate(text, dest= ln)
-            translation= translations.text
-        #By specifying the name of the context in the html, it will display the results.
-            print("Translated using Googel api")
+#         else:
+#             translator = Translator()
+#             translations= translator.translate(text, dest= ln)
+#             translation= translations.text
+#         #By specifying the name of the context in the html, it will display the results.
+#             print("Translated using Googel api")
         
         
-        context = {           
+#         context = {           
         
-        "translation":translation,
-        "text":text,
-        'attempts_left': remaining,
+#         "translation":translation,
+#         "text":text,
+#         'attempts_left': remaining,
         
-    }
-        return render(request, 'translation.html', context)        
+#     }
+#         return render(request, 'translation.html', context)        
     
     
     
     
-    return render(request, 'translation.html')
+#     return render(request, 'translation.html')
     
     
     

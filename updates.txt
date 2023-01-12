@@ -1,7 +1,9 @@
-Some cahnges made.
-Update the template
+TRANSLATION:
+It is not that good. So remove it in my opinion.
 
+LOGO Added (Good)
 
+Need to change the output and the input text, and how it will appear in the text box.
 
 Things remaing:
 
@@ -15,7 +17,7 @@ Including information about the web page on the first page.(SEO)
 Need to modify the GPT-3 models and prompts and integrating it into the web application.
 Changing the comrehnsion and looking for ways how can questions be written in it.
 
-Need to change the output and the input text, and how it will appear in the text box.
+
 
 Captcha is remaining.
 Billing section is remaining. Need to connect with a billing system.
