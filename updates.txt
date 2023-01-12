@@ -1,3 +1,7 @@
+## IMPORTANT:
+
+ADD CONDITION. If the number of tokens is too big, like people can even paste whole books, dont accept it.
+
 TRANSLATION:
 It is not that good. So remove it in my opinion.
 
