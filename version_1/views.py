@@ -512,6 +512,32 @@ def speech_change(request):
         
 
 
+def contact_new(request):
+
+    """This is contact for demo purpose """
+    
+    if request.method == 'POST':
+        
+        name= request.POST['name'] 
+        email= request.POST['email'] 
+        subject= request.POST['subject'] 
+        
+        text = request.POST['message']  #The text we will write
+
+
+           
+        final_message= gpt3(f"{text} and write my {name} in the end ")
+    
+        context = {           
+        "name": name,
+        "email": email,
+        "subject":subject,
+        "text":text,
+        "final_message": final_message
+    }
+        return render(request, 'new_contact.html', context)        
+    return render(request, 'new_contact.html')
+
 
 
 

@@ -8,7 +8,7 @@ urlpatterns = [
     path("grammar", views.grammar_correction, name="grammar"),
     path("summary", views.text_summarizer, name="summary"),
     path("sentence", views.word_mean_sentence, name="sentence"),
-    path("", views.index),
+    path("", views.index, name="home"),
     path("syn_ant", views.syn_anto, name="synonym"),
     path("fill", views.fill_the_blank, name="fillblanks"),
     # path("translate", views.translate, name="translate"),
@@ -18,6 +18,7 @@ urlpatterns = [
     ## This is for contact information
     
     path("contact/", views.contactView, name="contact"),
+     path("newcontact/", views.contact_new, name="newcontact"),
     path("success/", views.successView, name="success"),
     path("sessions/", views.attempts_left, name="sessions"),
     path("cache/", views.my_view_cache, name="cache"),
