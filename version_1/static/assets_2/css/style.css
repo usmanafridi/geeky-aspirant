@@ -642,12 +642,12 @@ section {
 .parbtn{
   float: right; 
   margin-top: 40px;
-  background: #2487ce;
+  background: #111;
   color: #fff;
   border-radius: 30px;
 }
 .parbtn:hover{
-  background: #124265;
+  background: #000;
   color: #fff;
   box-shadow: 3px 2px 8px gray; 
 }
@@ -2012,13 +2012,13 @@ section {
   padding-top: 30px !important;
 }
 .bordrbttm{
-  border-bottom: 2px solid rgb(12, 1, 1);
+  border-bottom: 2px solid darkgray;
 }
 .btnsm{
   display: none !important;
 }
 .bordrbttm{
-  border-top: 4px solid rgb(7, 1, 1);
+  border-top: 4px solid #ccc;
 }
 
 }
@@ -2035,7 +2035,7 @@ section {
   margin-left: 30px !important;
 }
 .bordrbttm{
-  border-bottom: 2px solid rgb(11, 0, 0);
+  border-bottom: 2px solid darkgray;
 }
 
 .btnsm{

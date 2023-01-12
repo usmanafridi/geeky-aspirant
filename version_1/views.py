@@ -15,7 +15,9 @@ from django.core.cache import cache
 from datetime import datetime, timedelta
 
 
-openai.api_key = "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"
+import os
+
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 
 
