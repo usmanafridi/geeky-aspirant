@@ -514,16 +514,16 @@ def comprehension_updated(request):
         
         "answers":answers
     }
-        return render(request, 'comprehension.html', context)  
+        return render(request, 'checking.html', context)  
     
         # Check if the rate limit has been reache
     
     
-    return render(request, 'comprehension.html')
+    return render(request, 'checking.html')
 
 
 @ratelimit(key='ip', rate='5/m')   
-@login_required(redirect_field_name='home')
+@login_required(redirect_field_name='speech')
 def speech_change(request):
 
     """This function is to change the speech into direct and indirect """
