@@ -2,6 +2,8 @@
 
 ADD CONDITION. If the number of tokens is too big, like people can even paste whole books, dont accept it.
 
+USE THE FREE DICTIONARY API TO SAVE TOKENS. But Look for Synonyms and Antonyms and Sentences. You can use GPt-3 for that.
+
 TRANSLATION:
 It is not that good. So remove it in my opinion.
 

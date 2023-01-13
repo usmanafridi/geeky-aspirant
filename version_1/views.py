@@ -21,6 +21,25 @@ openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 
 
+##### USE THIS FOR WORD MEANING AS GOOD RESULTS WERE ACHIEVED:
+
+# import os
+# import openai
+
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# response = openai.Completion.create(
+#   model="text-curie-001",
+#   prompt="The meaning of \"Islamophobic\".\n\n\n\nIslamophobic is a term used to describe a person who is afraid or hostile towards Muslims.",
+#   temperature=0.1,
+#   max_tokens=25,
+#   top_p=1,
+#   frequency_penalty=0.18,
+#   presence_penalty=0
+# )
+
+################################################
+
 ## Helper function for Cache counter.
 def cache_counter(request, turns_remaing = 3 ):
     key = f"user:{request.user.id}"
