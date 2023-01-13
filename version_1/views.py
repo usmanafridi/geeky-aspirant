@@ -40,6 +40,26 @@ openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 ################################################
 
+
+########## FOR SYNONYMS AND ANTONYMS MINIMAL ########
+
+# import os
+# import openai
+
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# response = openai.Completion.create(
+#   model="text-curie-001",
+#   prompt="Write antonyms of \"Pejorative\".\n\n\n\nAffectionate, endearing, complimentary, kind, positive",
+#   temperature=0.1,
+#   max_tokens=25,
+#   top_p=1,
+#   frequency_penalty=0.27,
+#   presence_penalty=0
+# )
+
+######################################################
+
 ## Helper function for Cache counter.
 def cache_counter(request, turns_remaing = 3 ):
     key = f"user:{request.user.id}"
