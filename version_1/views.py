@@ -103,7 +103,7 @@ def attempts_left(request):
 def gpt3(prompt):
 
     func = openai.Completion.create(
-    model="text-davinci-002",
+    model="text-davinci-003",
     prompt=prompt,
     temperature=0.3,
     max_tokens=900,
@@ -144,7 +144,7 @@ def outline(request):
         
     return render(request, 'outline.html')
 
-
+@ratelimit(key='ip', rate='3/d')
 def grammar_correction(request):
     """This function is to correct any grammatical mistake in a sentence"""
     
@@ -152,7 +152,7 @@ def grammar_correction(request):
         
         text = request.POST['text']  #The text we will write
 
-        if len(text) > 20:
+        if len(text) >= 20:
             
             text = "Access limit has been reached. Please reduce words. The max number of words are ...."
             correct_sentence= None
@@ -160,9 +160,10 @@ def grammar_correction(request):
         else:
             text= text
         #The context will return the grammatically correct sentence
-            correct_sentence= gpt3(f"Correct this to standard English:\n\n + {text}")
+            correct_sentence= gpt3(f"Correct this {text} to standard English: ")
         #By specifying the name of the context in the html, it will display the results.
         
+        print(text)
         context = {           
         "correctsentence": correct_sentence,
         "text": text
@@ -520,8 +521,9 @@ def comprehension_updated(request):
     
     return render(request, 'comprehension.html')
 
-    
-@login_required(redirect_field_name='my_redirect_field')
+
+@ratelimit(key='ip', rate='5/m')   
+@login_required(redirect_field_name='home')
 def speech_change(request):
 
     """This function is to change the speech into direct and indirect """
@@ -538,7 +540,7 @@ def speech_change(request):
         else:
             speech="Indirect Speech" 
            
-        speech_change= gpt3(f"Change the following into {speech}: \n\n {text} ")
+        speech_change= gpt3(f"Change {text} into {speech}:\n")
     
         context = {           
         

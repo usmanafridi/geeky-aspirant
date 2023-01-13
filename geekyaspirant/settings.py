@@ -160,7 +160,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = '/'
 
-LOGIN_URL = '/login/'
+LOGIN_URL = 'accounts/login/'
 
 ## This is to redirect to a particular view function when the rate limit is achieved
 RATELIMIT_VIEW = 'version_1.views.rate_limit_reached'

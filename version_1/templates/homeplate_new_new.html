@@ -69,7 +69,12 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+           {% if user.is_authenticated %}
+          <li><a class="getstarted scrollto" href="{% url 'account_logout' %}">Log Out</a></li>
+        </ul>
+        {% else %}
+         <li><a class="getstarted scrollto" href="{% url 'account_login' %}">Get Started</a></li>
+         {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
