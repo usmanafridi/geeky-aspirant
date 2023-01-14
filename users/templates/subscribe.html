@@ -1,0 +1,24 @@
+!<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+
+
+<!-- subscribe.html -->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Subscribe">
+</form>
+
+
+
+</body>
+</html>
+
+
+

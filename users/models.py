@@ -17,3 +17,14 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+
+
+
+class Subscriber(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=100, blank=True)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.email} - {self.subscribed_at}'
