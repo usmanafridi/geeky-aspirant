@@ -364,7 +364,7 @@ def comprehension(request):
 
     """This function is to write comprehension answers of a text"""
     
-    if num_textboxes > 0 and num_textboxes <= 4:
+    if num_textboxes > 0 and num_textboxes <= 3:
         if request.method == 'POST':
             text = request.POST['text']  #The text we will write
             
@@ -373,13 +373,13 @@ def comprehension(request):
             #Here the answers will be generated.
         
             #return answers
-            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n " )
+            answers= gpt3(f"Answer the questions from the following passage : {text}: + {question1} +\n\n " )
             context = {           
         "answers": answers}
        
         return render(request, 'comprehension.html', context)
     
-    elif num_textboxes > 4 and num_textboxes <= 5:
+    elif num_textboxes > 3 and num_textboxes <= 4:
         
         if request.method == 'POST':
             d={}
@@ -393,14 +393,15 @@ def comprehension(request):
             
 
             #return answers
-            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2} " )
+            answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2}" )
+
             
             context = {           
         "answers": answers}
        
         return render(request, 'comprehension.html', context)
 
-    elif num_textboxes > 5 and num_textboxes <= 6:
+    elif num_textboxes > 4 and num_textboxes <= 5:
         
         if request.method == 'POST':
             d={}
@@ -415,16 +416,18 @@ def comprehension(request):
             
 
             #return answers
-            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2} +\n\n {question3}" )
+            answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3}" )
             
             context = {           
-        "answers": answers}
+        "answers": answers,
+         "text": text
+       }
        
         return render(request, 'comprehension.html', context)
 
 
 
-    elif num_textboxes > 6 and num_textboxes <= 7:
+    elif num_textboxes > 5 and num_textboxes <= 6:
         
         if request.method == 'POST':
             d={}
@@ -440,14 +443,14 @@ def comprehension(request):
             
 
             #return answers
-            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2} +\n\n {question3}+\n\n {question4}" )
+            answers= gpt3(f"Answer the questions from the following passage : {text}: +\n\n {question1} +\n\n {question2} +\n\n {question3} +\n\n {question4}" )
             
             context = {           
         "answers": answers}
        
         return render(request, 'comprehension.html', context)
 
-    elif num_textboxes > 7 and num_textboxes <= 8:
+    elif num_textboxes > 6 and num_textboxes <= 7:
         
         if request.method == 'POST':
             d={}
@@ -464,7 +467,7 @@ def comprehension(request):
             
 
             #return answers
-            answers= gpt3(f"Answer the following questions in the {text}: + {question1} +\n\n {question2} +\n\n {question3}+\n\n {question4}+\n\n {question5}" )
+            answers= gpt3(f"Answer the questions from the following passage : {text}: +\n\n {question1} +\n\n {question2} +\n\n {question3} +\n\n {question4} +\n\n {question5}" )
             
             context = {           
         "answers": answers}
