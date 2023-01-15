@@ -1,0 +1,71 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+.textbox-style{
+    font-size: 20px;
+    border-color: blue;
+    width: 90%;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-width: 3px;
+   
+    
+}
+
+.textboxes-container{
+    display: flex;
+   
+}
+
+</style>
+</head>
+<body>
+    <form>
+        <div class="textboxes-container">
+            <div class="textbox-style" id="textboxes"></div>
+        </div>
+        <button type="button" id="add-textbox">Add textbox</button>
+    </form>
+    
+    
+    
+
+
+<script>
+
+
+
+var textboxNumber = 1;
+document.getElementById("add-textbox").addEventListener("click", function(){
+    var newTextbox = document.createElement("input");
+    
+    newTextbox.type = "text";
+    newTextbox.name = "textbox" + textboxNumber;
+    
+
+    document.getElementById("textboxes").appendChild(newTextbox);
+    newTextbox.classList.add("textbox-style");
+    textboxNumber++;
+});
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
+

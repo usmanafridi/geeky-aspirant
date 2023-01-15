@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import SubscriberForm
-from .models import Profile, Subscriber
+from .forms import SubscriberForm, FeedbackForm
+from .models import Profile, Subscriber, Feedback
 
 def profile(request):
     
@@ -24,3 +24,18 @@ def subscribe(request):
 def success(request):
     return render(request, 'success.html')
 
+
+def contact(request):
+    
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        feedback = request.POST['message']
+        subscriber = Feedback(name= name, email=email,feedback=feedback, subject=subject )
+        subscriber.save()
+        return redirect('success')
+    return render(request, 'index_2.html')
+
+
+    

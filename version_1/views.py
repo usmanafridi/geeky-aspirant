@@ -498,7 +498,7 @@ def rate_limit_reached(request, exception):
   ## The updated one, I have included to incude fill in the blanks, the above when is for questions.
   ## But a great care must be taken in the Prompt selection, as everything depends on that.
 
-@ratelimit(key='ip', rate='2/m')
+@ratelimit(key='ip', rate='100/m')
 def comprehension_updated(request):
 
     if request.method == 'POST': 
@@ -514,12 +514,12 @@ def comprehension_updated(request):
         
         "answers":answers
     }
-        return render(request, 'checking.html', context)  
+        return render(request, 'comprehension.html', context)  
     
         # Check if the rate limit has been reache
     
     
-    return render(request, 'checking.html')
+    return render(request, 'comprehension.html')
 
 
 @ratelimit(key='ip', rate='5/m')   

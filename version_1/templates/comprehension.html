@@ -59,22 +59,14 @@
           </div>
  
 
-          <div class="col-lg-6 order-1 order-lg-2 m-0 p-0 bordrbttm" >
-              <h2>Write Questions</h2>
-              <textarea class="textarea-1 p-2" name="textbox_question" placeholder="QuillBot will 
-              rewrite your text. Start by writing or pasting something here and then 
-              press the Paraphrase button."> </textarea>
-          
-<!-- This is for the Radio Buttons so that the users can confirm the questions are in particular format. -->
-          <h6>Please specify the questions type</h6>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">QUESTIONS</label>
+          <div class="text-center col-lg-6 order-1 order-lg-2 m-0 p-0 bordrbttm  " >
+            <div ><button  id="add-textbox" type="button" class="button_end" >Add Questions</button></div>
+
+              <div class="textbox-style" id="textboxes"></div>
+             
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">BLANKS / MCQS</label>
-          </div>
+       
+
 
   </div>
 
@@ -110,6 +102,22 @@
       document.querySelectorAll('.textarea-1')[1].scrollIntoView()
       </script>  
 
+<script>
+  var textboxNumber = 1;
+document.getElementById("add-textbox").addEventListener("click", function(){
+    var newTextbox = document.createElement("input");
+    
+    newTextbox.type = "text";
+    newTextbox.placeholder = "Write Question No" + textboxNumber;
+    newTextbox.name = "textbox" + textboxNumber;
+    
+
+    document.getElementById("textboxes").appendChild(newTextbox);
+    newTextbox.classList.add("textbox-style");
+    textboxNumber++;
+});
+
+</script>
 {% endblock %}
 
 

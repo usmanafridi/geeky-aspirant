@@ -28,3 +28,14 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return f'{self.email} - {self.subscribed_at}'
+
+
+class Feedback(models.Model):
+    feedback = models.TextField(default=None)
+    name = models.CharField(max_length=255, default=None)
+    subject = models.CharField(max_length=300, default=None)
+    email = models.EmailField(default=None)
+    commented_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name} - {self.commented_at}'
