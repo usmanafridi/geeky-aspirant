@@ -235,17 +235,25 @@ def syn_anto(request):
     if request.method == 'POST':
         
         text = request.POST['text']  #The text we will write
- 
+        if len(text)>= 100:
+            text= "The text contains too many words"
+            word_meaning=None
+            word_synonym= None
+            word_antonym= None
+           
+           
+            print(text)
+        else:
+            text=text
+            print(text)
         #return meaning
-        word_meaning= gpt3(f"Write the meaning of {text} \n\n")
-        
-        #return syn
-        word_synonym= gpt3(f"Write at least three synonyms of {text} \n\n")
-        
-        #return ant
-        word_antonym= gpt3(f"Write at least three antonyms of {text}\n\n ")
-
-        word_sentence= gpt3(f"Use {text} in a sentence")
+            word_meaning= gpt3(f"Write the meaning of {text} \n\n")
+            
+            #return syn
+            word_synonym= gpt3(f"Write at least three synonyms of {text} \n\n")
+            
+            #return ant
+            word_antonym= gpt3(f"Write at least three antonyms of {text}\n\n ")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
@@ -253,7 +261,7 @@ def syn_anto(request):
         "word_antonym": word_antonym,
         "word_meaning":word_meaning,
         "text":text
-       
+    
 
     }
        
@@ -270,14 +278,21 @@ def fill_the_blank(request):
     
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
- 
+        if len(text)>= 100:
+            text= "The text contains too many words"
+            blank_answers=None
+            print(text)
+        else:
+            text=text
+            print(text)
         #return words in the blanks
-        blank_answers= gpt3(f"Fill in the blank with appropriate word:{text}")
+            blank_answers= gpt3(f"Fill in the blank with appropriate word:{text}")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         
-        "blank_answers":blank_answers
+        "blank_answers":blank_answers,
+        "text":text
     }
         return render(request, 'blanks.html', context)        
     return render(request, 'blanks.html')
