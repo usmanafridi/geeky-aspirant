@@ -364,51 +364,60 @@ def comprehension(request):
 
     """This function is to write comprehension answers of a text"""
     
+    statement= """Answer the questions from the following passage and do not 
+    include infromation or examples which is not mentioned in the passage """
     
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
-        
-        if num_textboxes > 0 and num_textboxes <= 3:
-            question1= '1.' + request.POST['textbox1']
-            #return answers
-            answers= gpt3(f"Answer the questions from the following passage : {text}: + {question1} +\n\n " )
-        
-        elif num_textboxes > 3 and num_textboxes <= 4:
-            question1= '1.' + request.POST['textbox1']
-            question2= '2.' + request.POST['textbox2']
-            answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2}" )
-
-        elif num_textboxes > 4 and num_textboxes <= 5:
-            question1= '1.' + request.POST['textbox1']
-            question2= '2.' + request.POST['textbox2']
-            question3= '3.' + request.POST['textbox3']
-            answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3}" )
-
-        elif num_textboxes > 5 and num_textboxes <= 6:
-            question1= '1.' + request.POST['textbox1']
-            question2= '2.' + request.POST['textbox2']
-            question3= '3.' + request.POST['textbox3']
-            question4= '4.' + request.POST['textbox4']
-            answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3} + \n\n {question4}" )
-
-        elif num_textboxes > 6 and num_textboxes <= 7:
-
-            question1= '1.' + request.POST['textbox1']
-            question2= '2.' + request.POST['textbox2']
-            question3= '3.' + request.POST['textbox3']
-            question4= '4.' + request.POST['textbox4']
-            question5= '5.' + request.POST['textbox5']
-            answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3} + \n\n {question4}+ \n\n {question5}" )
-
-
+        print(len(text))
+        if len(text)>= 1500:
+            text= "The passage is too big, please reduce size"
+            answers=None
+            print(text)
         else:
-            None
+            text=text
+            print(text)
+        
+            if num_textboxes > 0 and num_textboxes <= 3:
+                question1= '1.' + request.POST['textbox1']
+                #return answers
+                answers= gpt3(f"Answer the questions from the following passage : {text}: + {question1} +\n\n " )
+            
+            elif num_textboxes > 3 and num_textboxes <= 4:
+                question1= '1.' + request.POST['textbox1']
+                question2= '2.' + request.POST['textbox2']
+                answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2}" )
+
+            elif num_textboxes > 4 and num_textboxes <= 5:
+                question1= '1.' + request.POST['textbox1']
+                question2= '2.' + request.POST['textbox2']
+                question3= '3.' + request.POST['textbox3']
+                answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3}" )
+
+            elif num_textboxes > 5 and num_textboxes <= 6:
+                question1= '1.' + request.POST['textbox1']
+                question2= '2.' + request.POST['textbox2']
+                question3= '3.' + request.POST['textbox3']
+                question4= '4.' + request.POST['textbox4']
+                answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3} + \n\n {question4}" )
+
+            elif num_textboxes > 6 and num_textboxes <= 7:
+
+                question1= '1.' + request.POST['textbox1']
+                question2= '2.' + request.POST['textbox2']
+                question3= '3.' + request.POST['textbox3']
+                question4= '4.' + request.POST['textbox4']
+                question5= '5.' + request.POST['textbox5']
+                answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3} + \n\n {question4}+ \n\n {question5}" )
+
+
+            else:
+                None
 
 
         context = {           
-    "answers": answers,
-    "text" :text
-    }
+        "answers": answers,
+        "text" :text }
     
         return render(request, 'comprehension.html', context)
     
