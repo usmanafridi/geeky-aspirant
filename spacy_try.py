@@ -3,13 +3,19 @@ import spacy
 en = spacy.load('en_core_web_sm')
 stopwords = en.Defaults.stop_words
 
-text = """ Marie Curie was one of the most accomplished scientists in history. Together with her husband, Pierre, she discovered radium, an element widely used for treating cancer, and studied uranium and other radioactive substances. Pierre and Marie’s amicable collaboration later helped to unlock the secrets of the atom.
-
-Marie was born in 1867 in Warsaw, Poland, where her father was a professor of physics. At an early age, she displayed a brilliant mind and a blithe personality. Her great exuberance for learning prompted her to continue with her studies after high school. She became disgruntled, however, when she learned that the university in Warsaw was closed to women. Determined to receive a higher education, she defiantly left Poland and in 1891 entered the Sorbonne, a French university, where she earned her master’s degree and doctorate in physics.
-
-Marie was fortunate to have studied at the Sorbonne with some of the greatest scientists of her day, one of whom was Pierre Curie. Marie and Pierre were married in 1895 and spent many productive years working together in the physics laboratory. A short time after they discovered radium, Pierre was killed by a horse-drawn wagon in 1906. Marie was stunned by this horrible misfortune and endured heartbreaking anguish. Despondently she recalled their close relationship and the joy that they had shared in scientific research. The fact that she had two young daughters to raise by herself greatly increased her distress.
-
-Curie’s feeling of desolation finally began to fade when she was asked to succeed her husband as a physics professor at the Sorbonne. She was the first woman to be given a professorship at the world-famous university. In 1911 she received the Nobel Prize in chemistry for isolating radium. Although Marie Curie eventually suffered a fatal illness from her long exposure to radium, she never became disillusioned about her work. Regardless of the consequences, she had dedicated herself to science and to revealing the mysteries of the physical world."""
+text = """ Globalization is viewed by its proponents as a process of cementing economic, cultural and political bonds between peoples of
+different countries of the world. One may regard it as a process by which they are welded into a single world society, to be termed
+as global society. It means internationalization of production and labour leading to integration of economies of developing and
+developed countries into global economy. To quote Rosaberth M.Kanter, “The world is becoming a global shopping mall in which
+ideas and products are available everywhere at the same time.”
+Globalization is a natural outcome of computer networking and electronic mass communication. Information technology has made
+it possible for nations of the world to contact one another beyond their national borders. Besides, globalization is also promoted
+through the growth and proliferation of multinational companies and corporations that operate as transporter networks. Anyhow the
+flow of capital technology and labour across the borders of countries has accentuated the process of globalization.
+Deregulation, liberalism and privatization being assiduously pursued in the developing countries are some other manifestations of
+globalization. These countries are opening their economies to follow these trends. The size of the public sector is shrinking for the
+private sector to assume an increasingly important role in the economic development of the Third World countries. The downsizing
+of the public sector is in line with the spirit of market economy. This is suggested as a measure to cover up their fiscal deficit.."""
 lst=[]
 for token in text.split():
     if token.lower() not in stopwords:    #checking whether the word is not 
@@ -19,6 +25,10 @@ for token in text.split():
 print("Original text  : ",text)
 print("Text after removing stopwords  :   ",' '.join(lst))
 
+new_list= ' '.join(lst)
+# print(new_list)
+print(len(text))
+print(len(new_list))
 # 1. Marine
 # 2. Intrigue
 # 3. North-South
