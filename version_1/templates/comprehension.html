@@ -63,7 +63,7 @@
             <div ><button  id="add-textbox" type="button" class="button_end" >Add Questions</button></div>
 
               <div class="textbox-style" id="textboxes"></div>
-             
+          <div>You can add maximum 5 questions only.</div>
           </div>
        
 
@@ -102,7 +102,13 @@
 
 <script>
   var textboxNumber = 1;
-document.getElementById("add-textbox").addEventListener("click", function(){
+  
+document.getElementById("add-textbox").addEventListener("click",
+    
+
+function(){
+    if(textboxNumber <= 5){
+  
     var newTextbox = document.createElement("input");
     
     newTextbox.type = "text";
@@ -112,7 +118,9 @@ document.getElementById("add-textbox").addEventListener("click", function(){
 
     document.getElementById("textboxes").appendChild(newTextbox);
     newTextbox.classList.add("textbox-style");
-    textboxNumber++;
+    
+    textboxNumber++ ;
+    }
 });
 
 </script>
