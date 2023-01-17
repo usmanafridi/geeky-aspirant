@@ -11,8 +11,8 @@
   <meta content="" name="keywords">
 
  <!-- Favicons -->
- <link href="{% static 'assets_2/img/GA_PNG.png' %}" rel="icon">
- <link href="{% static 'assets_2/img/GA_PNG.png' %}" rel="apple-touch-icon">
+ <link href="{% static 'assets_2/img/elm_svg.png' %}" rel="icon">
+ <link href="{% static 'assets_2/img/elm_svg.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -88,7 +88,7 @@ background: #eee;
 
       <!-- <h1 class="logo"><a href="index.html">OnePage</a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="{% url 'home' %}" class="logo"><img src="{% static 'assets_2/img/PNG.png' %}" alt="" class="img-fluid"></a>
+      <a href="{% url 'home' %}" class="logo"><img src="{% static 'assets_2/img/elm_svg.png' %}" alt="" class="img-fluid"></a>
 
 
       <nav id="navbar" class="navbar">
@@ -116,7 +116,7 @@ background: #eee;
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'newcontact' %}">Contact</a></li>
            {% if user.is_authenticated %}
           <li><a class="getstarted scrollto" href="{% url 'account_logout' %}">Log Out</a></li>
         </ul>
