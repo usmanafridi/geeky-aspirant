@@ -121,15 +121,21 @@ def index(request):
         
     return render(request, 'index_2.html')
 
-@ratelimit(key='ip', rate='3/d')
+@ratelimit(key='ip', rate='70/d')
 def outline(request):
     """This function is to create outline of a text provided by the user"""
     
     if request.method == 'POST':
 
         text = request.POST['text']  #The text we will write (Here the "text" is the name of the form in html )
-
-        text_response = gpt3(f"Write 10 outlines of {text} ")
+        if len(text) >= 50:
+            
+            text = "Access limit has been reached. Please reduce words. The max number of words are ...."
+            text_response= ''
+        
+        else:
+            text= text
+            text_response = gpt3(f"Write 10 outlines of {text} ")
 
         #The context will return the text response
 
@@ -172,7 +178,7 @@ def grammar_correction(request):
         return render(request, 'grammar.html', context)
     return render(request, 'grammar.html')
 
-
+@ratelimit(key='ip', rate='3/d')
 def text_summarizer(request):
 
     """This function is to make a short summary of a text"""
@@ -180,18 +186,26 @@ def text_summarizer(request):
     if request.method == 'POST':
         
         text = request.POST['text']  #The text we will write
-
-        ## Here, the title will be generated 
-        #return title
-        title= gpt3(f"Suggest a title for the following passage\n\n + {text}")
+        if len(text) >= 1200:
+            
+            text = "Access limit has been reached. Please reduce words. The max number of words are ...."
         
-        #return summary
-        text_summary= gpt3(f"{text}+\n\nTl;dr",)
+            text_summary= None
+        
+        else:
+            
+            text= text
+       
+        ##return summary
+            text_summary= gpt3(f"Write summary of the following passage and a suitable title in the end\n\n + {text}")
+            
+            
+        
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "correctsummary": text_summary,
-        "correcttitle": title,
+       
         "text":text
 
     }

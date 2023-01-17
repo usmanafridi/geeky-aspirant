@@ -54,11 +54,11 @@
           </div>
           <div class="col-lg-6 m-0 p-2 bordrbttm">
               
-              {% if word_synonym %}
-
-              <textarea class="textarea-1 m-0 p-0" name= "output" placeholder="Output here QuillBot will rewrite your text. Start by writing or pasting  something here and then press the Paraphrase button.">Meaning: {{word_meaning}} Synonym: {{word_synonym}} {{br}} Antonym: {{word_antonym}}</textarea>
+            
+            <textarea class="textarea-1 m-0 p-0" name= "output" placeholder="Output here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{% if word_synonym %} Meaning: {{word_meaning}} Synonym: {{word_synonym}} {{br}} Antonym: {{word_antonym}}   {% endif %}</textarea>
+              
           
-                {% endif %}
+              
           </div>
 
         </div>

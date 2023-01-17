@@ -3,19 +3,26 @@ import spacy
 en = spacy.load('en_core_web_sm')
 stopwords = en.Defaults.stop_words
 
-text = """ Globalization is viewed by its proponents as a process of cementing economic, cultural and political bonds between peoples of
-different countries of the world. One may regard it as a process by which they are welded into a single world society, to be termed
-as global society. It means internationalization of production and labour leading to integration of economies of developing and
-developed countries into global economy. To quote Rosaberth M.Kanter, “The world is becoming a global shopping mall in which
-ideas and products are available everywhere at the same time.”
-Globalization is a natural outcome of computer networking and electronic mass communication. Information technology has made
-it possible for nations of the world to contact one another beyond their national borders. Besides, globalization is also promoted
-through the growth and proliferation of multinational companies and corporations that operate as transporter networks. Anyhow the
-flow of capital technology and labour across the borders of countries has accentuated the process of globalization.
-Deregulation, liberalism and privatization being assiduously pursued in the developing countries are some other manifestations of
-globalization. These countries are opening their economies to follow these trends. The size of the public sector is shrinking for the
-private sector to assume an increasingly important role in the economic development of the Third World countries. The downsizing
-of the public sector is in line with the spirit of market economy. This is suggested as a measure to cover up their fiscal deficit.."""
+text = """ Nizar Hassan was born in 1960 and raised in the village of Mashhad, near Nazareth, where he has lived with his
+family. He studied anthropology at Haifa University and after graduating worked in TV. Starting in 1990, he
+turned to cinema. In 1994, he produced Independence, in which he pokes his Palestinian interlocutors about what
+they think of the bizarre Israeli notion of their “independence”. They have stolen another people’s homeland and
+call the act “independence”! Hassan dwells on that absurdity.
+As the world’s attention was captured by the news of Israel planning to “annex” yet a bit more of Palestine and
+add it to what they have already stolen, I received an email from Nizar Hassan, the pre-eminent Palestinian
+documentary filmmaker. He wrote to me about his latest film, My Grandfather’s Path, and included a link to the
+director’s cut. It was a blessing. They say choose your enemies carefully for you would end up like them. The
+same goes for those opposing Zionist settler colonialists. If you are too incensed and angered by their daily dose of
+claptrap, the vulgarity of their armed robbery of Palestine, you would soon become like them and forget yourself
+and what beautiful ideas, ideals, and aspirations once animated your highest dreams. Never fall into that trap. For
+decades, aspects of Palestinian and world cinema, art, poetry, fiction, and drama have done for me precisely that:
+saved me from that trap. They have constantly reminded me what all our politics are about – a moment of poetic
+salvation from it all.
+Nizar Hassan’s new documentary is one such work – in a moment of dejection over Israel’s encroachment on
+Palestinian rights and the world’s complicity, it has put Palestine in perspective. The film is mercifully long,
+beautifully paced and patient, a masterfully crafted work of art – a Palestinian’s epic ode to his homeland. A
+shorter version of My Grandfather’s Path has been broadcast on Al Jazeera Arabic in three parts, but it must be
+seen in its entirety, in one go. It is a pilgrimage that must not be interrupted. """
 lst=[]
 for token in text.split():
     if token.lower() not in stopwords:    #checking whether the word is not 
