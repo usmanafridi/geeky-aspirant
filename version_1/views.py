@@ -20,6 +20,26 @@ import os
 openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 
+#### USE THIS FOR PRECIS AND SUMMARY AS GOOD RESULTS WERE ACHIEVED #####
+
+# import os
+# import openai
+
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# response = openai.Completion.create(
+#   model="text-davinci-003",
+#   prompt="Write precis of the following passage and a suitable title in the end:\n\"Nizar Hassan was born in 1960 and raised in the village of Mashhad, near Nazareth, where he has lived with his\nfamily. He studied anthropology at Haifa University and after graduating worked in TV. Starting in 1990, he\nturned to cinema. In 1994, he produced Independence, in which he pokes his Palestinian interlocutors about what\nthey think of the bizarre Israeli notion of their “independence”. They have stolen another people’s homeland and\ncall the act “independence”! Hassan dwells on that absurdity.\nAs the world’s attention was captured by the news of Israel planning to “annex” yet a bit more of Palestine and\nadd it to what they have already stolen, I received an email from Nizar Hassan, the pre-eminent Palestinian\ndocumentary filmmaker. He wrote to me about his latest film, My Grandfather’s Path, and included a link to the\ndirector’s cut. It was a blessing. They say choose your enemies carefully for you would end up like them. The\nsame goes for those opposing Zionist settler colonialists. If you are too incensed and angered by their daily dose of\nclaptrap, the vulgarity of their armed robbery of Palestine, you would soon become like them and forget yourself\nand what beautiful ideas, ideals, and aspirations once animated your highest dreams. Never fall into that trap. For\ndecades, aspects of Palestinian and world cinema, art, poetry, fiction, and drama have done for me precisely that:\nsaved me from that trap. They have constantly reminded me what all our politics are about – a moment of poetic\nsalvation from it all.\nNizar Hassan’s new documentary is one such work – in a moment of dejection over Israel’s encroachment on\nPalestinian rights and the world’s complicity, it has put Palestine in perspective. The film is mercifully long,\nbeautifully paced and patient, a masterfully crafted work of art – a Palestinian’s epic ode to his homeland. A\nshorter version of My Grandfather’s Path has been broadcast on Al Jazeera Arabic in three parts, but it must be\nseen in its entirety, in one go. It is a pilgrimage that must not be interrupted. \"\n\n\nNizar Hassan, a Palestinian documentary filmmaker born in 1960, produced the film 'Independence', wherein he pokes his Palestinian interlocutors about Israel's bizarre notion of \"independence\". His latest work, 'My Grandfather's Path' is an epic ode to his homeland that should be seen in its entirety. It captures a moment of poetic salvation from the clutches of Israeli encroachment and world complicity while reminding us what all our politics are about. \nTitle: Nizar Hassan’s ‘My Grandfather’s Path’ - An Epic Ode To Palestine",
+#   temperature=0.7,
+#   max_tokens=1002,
+#   top_p=1,
+#   frequency_penalty=2,
+#   presence_penalty=0.28
+# )
+
+############################################
+
+
 
 ##### USE THIS FOR WORD MEANING AS GOOD RESULTS WERE ACHIEVED:
 
@@ -101,7 +121,6 @@ def attempts_left(request):
 
 
 def gpt3(prompt):
-
     func = openai.Completion.create(
     model="text-davinci-003",
     prompt=prompt,
@@ -117,58 +136,43 @@ def gpt3(prompt):
 
 def index(request):
     """This function is written so that I can test how to write post text and get it to the backend of our system"""
-    
-        
     return render(request, 'index_2.html')
+
 
 @ratelimit(key='ip', rate='70/d')
 def outline(request):
     """This function is to create outline of a text provided by the user"""
     
     if request.method == 'POST':
-
         text = request.POST['text']  #The text we will write (Here the "text" is the name of the form in html )
         if len(text) >= 50:
-            
             text = "Access limit has been reached. Please reduce words. The max number of words are ...."
             text_response= ''
-        
         else:
             text= text
             text_response = gpt3(f"Write 10 outlines of {text} ")
-
         #The context will return the text response
-
         #By specifying the name of the context in the html, it will display the results.
-        
         context = {           
         "htmltext": text_response,
         "text":text
     }
-       
         return render(request, 'outline.html', context)
-        
     return render(request, 'outline.html')
 
 @ratelimit(key='ip', rate='3/d')
 def grammar_correction(request):
     """This function is to correct any grammatical mistake in a sentence"""
-    
     if request.method == 'POST':
-        
         text = request.POST['text']  #The text we will write
-
         if len(text) >= 20:
-            
             text = "Access limit has been reached. Please reduce words. The max number of words are ...."
             correct_sentence= None
-        
         else:
             text= text
         #The context will return the grammatically correct sentence
             correct_sentence= gpt3(f"Correct this {text} to standard English: ")
         #By specifying the name of the context in the html, it will display the results.
-        
         print(text)
         context = {           
         "correctsentence": correct_sentence,
@@ -180,58 +184,58 @@ def grammar_correction(request):
 
 @ratelimit(key='ip', rate='3/d')
 def text_summarizer(request):
-
     """This function is to make a short summary of a text"""
-    
     if request.method == 'POST':
-        
         text = request.POST['text']  #The text we will write
-        if len(text) >= 1200:
-            
+        if len(text) >= 2500:
             text = "Access limit has been reached. Please reduce words. The max number of words are ...."
-        
             text_summary= None
-        
         else:
-            
             text= text
-       
         ##return summary
-            text_summary= gpt3(f"Write summary of the following passage and a suitable title in the end\n\n + {text}")
-            
-            
-        
+            text_summary= gpt3(f"Write precis of the following passage and a suitable title in the end\n\n + {text}")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "correctsummary": text_summary,
-       
         "text":text
-
     }
-       
         return render(request, 'summary.html', context)
-
-
-        
     return render(request, 'summary.html')
 
 
-def word_mean_sentence(request):
-
-    """This function is to make sentences and write the meaning of the words"""
-    
+@ratelimit(key='ip', rate='3/d')
+def text_paraphraser(request):
+    """This function is to make a short paraphraser of a text"""
     if request.method == 'POST':
+        text = request.POST['text']  #The text we will write
+        if len(text) >= 2500:
+            text = "Access limit has been reached. Please reduce words. The max number of words are ...."
+            text_paraphrase= None
+        else:
+            text= text
+        ##return summary
+            text_paraphrase= gpt3(f"Paraphrase of the following text \n\n + {text}")
         
+        #By specifying the name of the context in the html, it will display the results.
+        context = {           
+        "text_paraphrase": text_paraphrase,
+        "text":text
+    }
+        return render(request, 'paraphrase.html', context)
+    return render(request, 'paraphrase.html')
+
+
+
+def word_mean_sentence(request):
+    """This function is to make sentences and write the meaning of the words"""
+    if request.method == 'POST':
         text = request.POST['text']  #The text we will write
         ## Here, the title will be generated  
-        
         #return title
         word_meaning= gpt3(f"Write the meaning of {text} in English\n\n")
-        
         #return sentence
         word_sentence= gpt3(f"Use {text} in a sentence")
-        
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "word_meaning": word_meaning,
@@ -243,29 +247,22 @@ def word_mean_sentence(request):
 
 
 def syn_anto(request):
-
     """This function is to generate the meaning of word, synonyms and antonyms"""
-    
     if request.method == 'POST':
-        
         text = request.POST['text']  #The text we will write
         if len(text)>= 100:
             text= "The text contains too many words"
             word_meaning=None
             word_synonym= None
             word_antonym= None
-           
-           
             print(text)
         else:
             text=text
             print(text)
         #return meaning
             word_meaning= gpt3(f"Write the meaning of {text} \n\n")
-            
             #return syn
             word_synonym= gpt3(f"Write at least three synonyms of {text} \n\n")
-            
             #return ant
             word_antonym= gpt3(f"Write at least three antonyms of {text}\n\n ")
         
@@ -275,10 +272,7 @@ def syn_anto(request):
         "word_antonym": word_antonym,
         "word_meaning":word_meaning,
         "text":text
-    
-
     }
-       
         return render(request, 'synonym.html', context)        
     return render(request, 'synonym.html')
 
@@ -287,9 +281,7 @@ def syn_anto(request):
 ## In fill in the blanks, give prior examples so that the prompt can pick this up.
 
 def fill_the_blank(request):
-
     """This function is to return words in the blanks provided in the sentence."""
-    
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
         if len(text)>= 100:
@@ -304,7 +296,6 @@ def fill_the_blank(request):
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
-        
         "blank_answers":blank_answers,
         "text":text
     }
@@ -439,11 +430,8 @@ def comprehension(request):
                 question5= '5.' + request.POST['textbox5']
                 answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3} + \n\n {question4}+ \n\n {question5}" )
 
-
             else:
                 None
-
-
         context = {           
         "answers": answers,
         "text" :text }

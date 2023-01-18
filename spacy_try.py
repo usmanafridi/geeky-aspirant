@@ -25,8 +25,8 @@ shorter version of My Grandfather’s Path has been broadcast on Al Jazeera Arab
 seen in its entirety, in one go. It is a pilgrimage that must not be interrupted. """
 lst=[]
 for token in text.split():
-    if token.lower() not in stopwords:    #checking whether the word is not 
-        lst.append(token)                    #present in the stopword list.
+        #checking whether the word is not 
+    lst.append(token)                    #present in the stopword list.
         
 #Join items in the list
 print("Original text  : ",text)

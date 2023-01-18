@@ -14,6 +14,7 @@ urlpatterns = [
     # path("translate", views.translate, name="translate"),
     path("comprehension", views.comprehension, name="comprehension"),
     path("speech", views.speech_change, name="speech"),
+    path("paraphraser", views.text_paraphraser, name="paraphraser"),
     
     ## This is for contact information
     
