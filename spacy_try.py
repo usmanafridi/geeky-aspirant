@@ -3,30 +3,47 @@ import spacy
 en = spacy.load('en_core_web_sm')
 stopwords = en.Defaults.stop_words
 
-text = """ Nizar Hassan was born in 1960 and raised in the village of Mashhad, near Nazareth, where he has lived with his
-family. He studied anthropology at Haifa University and after graduating worked in TV. Starting in 1990, he
-turned to cinema. In 1994, he produced Independence, in which he pokes his Palestinian interlocutors about what
-they think of the bizarre Israeli notion of their “independence”. They have stolen another people’s homeland and
-call the act “independence”! Hassan dwells on that absurdity.
-As the world’s attention was captured by the news of Israel planning to “annex” yet a bit more of Palestine and
-add it to what they have already stolen, I received an email from Nizar Hassan, the pre-eminent Palestinian
-documentary filmmaker. He wrote to me about his latest film, My Grandfather’s Path, and included a link to the
-director’s cut. It was a blessing. They say choose your enemies carefully for you would end up like them. The
-same goes for those opposing Zionist settler colonialists. If you are too incensed and angered by their daily dose of
-claptrap, the vulgarity of their armed robbery of Palestine, you would soon become like them and forget yourself
-and what beautiful ideas, ideals, and aspirations once animated your highest dreams. Never fall into that trap. For
-decades, aspects of Palestinian and world cinema, art, poetry, fiction, and drama have done for me precisely that:
-saved me from that trap. They have constantly reminded me what all our politics are about – a moment of poetic
-salvation from it all.
-Nizar Hassan’s new documentary is one such work – in a moment of dejection over Israel’s encroachment on
-Palestinian rights and the world’s complicity, it has put Palestine in perspective. The film is mercifully long,
-beautifully paced and patient, a masterfully crafted work of art – a Palestinian’s epic ode to his homeland. A
-shorter version of My Grandfather’s Path has been broadcast on Al Jazeera Arabic in three parts, but it must be
-seen in its entirety, in one go. It is a pilgrimage that must not be interrupted. """
+text = """ When I returned to the common the sun was setting. The crowd about the pit had increased, and stood out black against
+the lemon yellow of the sky-a couple of hundred people, perhaps. There were raised voices, and some sort of struggle
+appeared to be going on about the pit. Strange imaginings passed through my mind. As I drew nearer I heard Stent's
+voice: "Keep back! Keep back!" A boy came running towards me. "It's movin'," he said to me as he passed; "it’s
+screwin' and screwin' out. I don't like it. I'm goin' home, I am." I went on to the crowd. There were really, I should
+think, two or three hundred people elbowing and jostling one another, the one or two ladies there being by no means the
+least active. "He's fallen in the pit!" cried someone. "Keep back!" said several. The crowd swayed a little, and I elbowed
+my way through. Everyone seemed greatly excited. I heard a peculiar humming sound from the pit. "I say!" said
+Ogilvy. "Help keep these idiots back. We don't know what's in the confounded thing, you know!" I saw a young man, a
+shop assistant in Woking I believe he was, standing on the cylinder and trying to scramble out of the hole again. The
+crowd had pushed him in. The end of the cylinder was being screwed out from within. Nearly two feet of shining screw
+projected. Somebody blundered against me, and I narrowly missed being pitched onto the top of the screw. I turned,
+and as I did so the screw must have come out, for the lid of the cylinder fell upon the gravel with a ringing concussion. I
+stuck my elbow into the person behind me, and turned my head towards the Thing again. For a moment that circular
+cavity seemed perfectly black. I had the sunset in my eyes. I think everyone expected to see a man emerge-possibly
+something a little unlike us terrestrial men, but in all essentials a man. I know I did. But, looking, I presently saw
+something stirring within the shadow: greyish billowy movements, one above another, and then two luminous
+disks-like eyes. Then something resembling a little grey snake, about the thickness of a walking stick, coiled up out of
+the writhing middle, and wriggled in the air towards me-and then another. A sudden chill came over me. There was a
+loud shriek from a woman behind. I half turned, keeping my eyes fixed upon the cylinder still, from which other
+tentacles were now projecting, and began pushing my way back from the edge of the pit. I saw astonishment giving
+place to horror on the faces of the people about me. I heard inarticulate exclamations on all sides. There was a general
+movement backwards. I saw the shopman struggling still on the edge of the pit. I found myself alone, and saw the
+people on the other side of the pit running off, Stent among them. I looked again at the cylinder and ungovernable terror
+gripped me. I stood petrified and staring. A big greyish rounded bulk, the size, perhaps, of a bear, was rising slowly and
+painfully out of the cylinder. As it bulged up and caught the light, it glistened like wet leather. Two large dark-coloured
+eyes were regarding me steadfastly. The mass that framed them, the head of the thing, was rounded, and had, one might say, a face. There was a mouth under the eyes, the lipless brim of which quivered and panted, and dropped saliva. The
+whole creature heaved and pulsated convulsively. A lank tentacular appendage gripped the edge of the cylinder, another
+swayed in the air. Those who have never seen a living Martian can scarcely imagine the strange horror of its
+appearance. The peculiar V-shaped mouth with its pointed upper lip, the absence of brow ridges, the absence of a chin
+beneath the wedge like lower lip, the incessant quivering of this mouth, the Gorgon groups of tentacles, the tumultuous
+breathing of the lungs in a strange atmosphere, the evident heaviness and painfulness of movement due to the greater
+gravitational energy of the earthabove all, the extraordinary intensity of the immense eyes-were at once vital, intense,
+inhuman, crippled and monstrous. There was something fungoid in the oily brown skin, something in the clumsy
+deliberation of the tedious movements unspeakably nasty. Even at this first encounter, this first glimpse, I was
+overcome with disgust and dread. """
 lst=[]
+
 for token in text.split():
-        #checking whether the word is not 
-    lst.append(token)                    #present in the stopword list.
+    if token.lower() not in stopwords:    #checking whether the word is not 
+        lst.append(token)                    #present in the stopword list.
         
 #Join items in the list
 print("Original text  : ",text)

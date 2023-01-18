@@ -390,7 +390,7 @@ def comprehension(request):
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
         print(len(text))
-        if len(text)>= 1500:
+        if len(text)>= 15000:
             text= "The passage is too big, please reduce size"
             answers=None
             print(text)
@@ -437,9 +437,6 @@ def comprehension(request):
         "text" :text }
     
         return render(request, 'comprehension.html', context)
-    
-
-        
     return render(request, 'comprehension.html')
 
 

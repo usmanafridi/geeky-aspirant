@@ -1,27 +1,35 @@
 ## IMPORTANT:
 
-ADD CONDITION. If the number of tokens is too big, like people can even paste whole books, dont accept it.
+ADD CONDITION. If the number of tokens is too big, like people can even paste whole books, dont accept it. (DONE)
 
-USE THE FREE DICTIONARY API TO SAVE TOKENS. But Look for Synonyms and Antonyms and Sentences. You can use GPt-3 for that.
+USE THE FREE DICTIONARY API TO SAVE TOKENS. But Look for Synonyms and Antonyms and Sentences. You can use GPt-3 for that. (Remaining)
+
+In the comprehension, when the stopwords are removed, the results are slightly affected. So we have to make a choice. Also, design the prompt correctly, and tune the relative
+parameters so there are no problems.
+
+
+Deployment on PythonAnywhere (Remaining)
+
+Google Adsense (Remainin)
 
 TRANSLATION:
-It is not that good. So remove it in my opinion.
+It is not that good. So remove it in my opinion. (Done)
 
 LOGO Added (Good)
 
-Need to change the output and the input text, and how it will appear in the text box.
+Need to change the output and the input text, and how it will appear in the text box. (Slightly done)
 
 Things remaing:
 
-Make a flow of how the user is going to use the website (Login, etc)
-Add the contact section so that user can send you email about any improvement about the web.
-Add subscription link in the website.
+Make a flow of how the user is going to use the website (Login, etc) (Slightly remaining)
+Add the contact section so that user can send you email about any improvement about the web.(Done)
+Add subscription link in the website.(Done)
 Redirecting after rate limite achieved. (Done)
-Comprehesion page left. (Make improvements)
-Other small changes like button colors.
+Comprehesion page left. (Make improvements) (Done)
+Other small changes like button colors. (Slightly remaining)
 Including information about the web page on the first page.(SEO)
 Need to modify the GPT-3 models and prompts and integrating it into the web application.
-Changing the comrehnsion and looking for ways how can questions be written in it.
+Changing the comrehnsion and looking for ways how can questions be written in it. (Done)
 
 
 
@@ -48,6 +56,6 @@ ERRORS:
 Mobile screen exceeds when a lot of text is written. Improve that. (DONE. AUTOMATICALLY ACHIEVED USING BOOTSTRAP)
 
 
-ADD PARAPHRASING SECTION, AND TEXT SUMMARIZER
+ADD PARAPHRASING SECTION, AND TEXT SUMMARIZER (Done)
 
-ADD VIDEO ABOUT HOW TO USE THIS TOOL:
+ADD VIDEO ABOUT HOW TO USE THIS TOOL:(Remaining)
