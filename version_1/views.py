@@ -120,15 +120,15 @@ def attempts_left(request):
         return render(request, 'my_template.html', {'attempts_left': attempts_left})
 
 
-def gpt3(prompt):
+def gpt3(prompt, tokens=900, temperature=0.7, presence=0.23):
     func = openai.Completion.create(
     model="text-davinci-003",
     prompt=prompt,
-    temperature=0.3,
-    max_tokens=900,
+    temperature=temperature,
+    max_tokens=tokens,
     top_p=1.0,
     frequency_penalty=0.0,
-    presence_penalty=0.0
+    presence_penalty=presence
     )
     result= func["choices"][0]["text"]
     return result
@@ -139,7 +139,7 @@ def index(request):
     return render(request, 'index_2.html')
 
 
-@ratelimit(key='ip', rate='70/d')
+@ratelimit(key='ip', rate='3/d')
 def outline(request):
     """This function is to create outline of a text provided by the user"""
     
@@ -451,6 +451,25 @@ def rate_limit_reached(request, exception):
   ## Another one is to fill in the blanks.
   ## The updated one, I have included to incude fill in the blanks, the above when is for questions.
   ## But a great care must be taken in the Prompt selection, as everything depends on that.
+
+@ratelimit(key='ip', rate='3/d')
+def punctuation(request):
+
+    if request.method == 'POST': 
+        text = request.POST['text']  #The text we will write
+        #return words in the blanks
+        answers= gpt3(f"Put in comma, semicolons, colons, dashes, hyphen, quotation marks, question mark, exclamation point,  and brackets where ever they are needed in the following sentences: \n\n{text}" )
+        #By specifying the name of the context in the html, it will display the results.
+        context = {           
+        "punctuation":answers,
+        "text":text
+    }
+        return render(request, 'punctuation.html', context)  
+        # Check if the rate limit has been reache
+    return render(request, 'punctuation.html')
+
+
+
 
 @ratelimit(key='ip', rate='100/m')
 def comprehension_updated(request):
