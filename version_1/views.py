@@ -160,12 +160,12 @@ def outline(request):
         return render(request, 'outline.html', context)
     return render(request, 'outline.html')
 
-@ratelimit(key='ip', rate='3/d')
+@ratelimit(key='ip', rate='70/d')
 def grammar_correction(request):
     """This function is to correct any grammatical mistake in a sentence"""
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
-        if len(text) >= 20:
+        if len(text) >= 200:
             text = "Access limit has been reached. Please reduce words. The max number of words are ...."
             correct_sentence= None
         else:
@@ -292,7 +292,7 @@ def fill_the_blank(request):
             text=text
             print(text)
         #return words in the blanks
-            blank_answers= gpt3(f"Fill in the blank with appropriate word:{text}")
+            blank_answers= gpt3(f"Fill in the blank with appropriate word:\n{text}")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           

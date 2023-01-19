@@ -164,6 +164,8 @@
     });
   }
 
+  
+
   /**
    * Initiate glightbox 
    */
