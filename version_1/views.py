@@ -233,9 +233,21 @@ def word_mean_sentence(request):
         text = request.POST['text']  #The text we will write
         ## Here, the title will be generated  
         #return title
+        
+        
+        
+        
         word_meaning= gpt3(f"Write the meaning of {text} in English\n\n")
         #return sentence
         word_sentence= gpt3(f"Use {text} in a sentence")
+
+        
+        
+        
+        
+        translated_text= translator = Translator()
+        translations= translator.translate(text, dest= ln)
+        translation= translations.text
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "word_meaning": word_meaning,
