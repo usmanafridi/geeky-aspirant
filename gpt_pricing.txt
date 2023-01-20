@@ -1,0 +1,17 @@
+Davinci ---   $0.0200  / 1K tokens
+
+It means that for 1 dollar, I can utilize 50,000 tokens
+
+
+USE-CASE 1:
+Now lets suppose the users of your website reach 1000 per day.
+And lets suppose each user make 5 request on average. And consume around 1500 tokens each.
+
+
+Now calculate it.
+
+Total : 7500000 Tokens per day
+Price : 150 USD -- 34000 PKR at (1 USD = 229 PKR)
+
+Also suppose how many profit you will generate with Google Ads:
+

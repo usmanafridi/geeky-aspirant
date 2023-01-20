@@ -139,7 +139,7 @@ def index(request):
     return render(request, 'index_2.html')
 
 
-@ratelimit(key='ip', rate='3/d')
+@ratelimit(key='ip', rate='2/d')
 def outline(request):
     """This function is to create outline of a text provided by the user"""
     
@@ -150,7 +150,7 @@ def outline(request):
             text_response= ''
         else:
             text= text
-            text_response = gpt3(f"Write 10 outlines of {text} ")
+            text_response = gpt3(f"Write an outline of {text},  ", tokens=200)
         #The context will return the text response
         #By specifying the name of the context in the html, it will display the results.
         context = {           
@@ -292,7 +292,7 @@ def fill_the_blank(request):
             text=text
             print(text)
         #return words in the blanks
-            blank_answers= gpt3(f"Fill in the blank with appropriate word:\n{text}")
+            blank_answers= gpt3(f"Fill in the blank with appropriate word: \n{text}")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           

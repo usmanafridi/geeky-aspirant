@@ -154,6 +154,7 @@
     }
   });
 
+  
   /**
    * Preloader
    */
@@ -164,7 +165,8 @@
     });
   }
 
-  
+
+
 
   /**
    * Initiate glightbox 
