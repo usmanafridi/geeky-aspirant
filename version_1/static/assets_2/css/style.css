@@ -460,6 +460,7 @@ h6 {
 
 #hero .icon-boxes {
   margin-top: 100px;
+  margin-bottom: 100px
 }
 
 #hero .icon-box {
@@ -2176,7 +2177,7 @@ section {
 @media (min-width: 1536px) { 
 
   #hero .icon-box{
-  padding: 5px 10px !important;
+  padding: 50px 30px !important;
   transition: ease-in-out 0.3s !important;
   border: none !important;
   background: #cccc !important;

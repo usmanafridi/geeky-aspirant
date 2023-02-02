@@ -134,6 +134,9 @@ def gpt3(prompt, tokens=900, temperature=0.7, presence=0.23):
     return result
 
 
+
+
+
 def index(request):
     """This function is written so that I can test how to write post text and get it to the backend of our system"""
     return render(request, 'index_2.html')
