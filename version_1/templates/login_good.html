@@ -1,0 +1,75 @@
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="{% static 'assets_2/font-awesome/css/all.css' %}" rel="stylesheet">
+    
+    </head>
+    <body>
+        <div class="container mx-auto p-y row d-flex justify-content-center align-items-center mt-5">
+            <div class="col-lg-6 col-md-10 col-sm-12 ">
+                <form>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="form2Example1" class="form-control" />
+                  <label class="form-label" for="form2Example1">Email address</label>
+                </div>
+              
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="form2Example2" class="form-control" />
+                  <label class="form-label" for="form2Example2">Password</label>
+                </div>
+              
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                  <div class="col d-flex justify-content-center">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                      <label class="form-check-label" for="form2Example31"> Remember me </label>
+                    </div>
+                  </div>
+              
+                  <div class="col">
+                    <!-- Simple link -->
+                    <a href="#!">Forgot password?</a>
+                  </div>
+                </div>
+              
+                <!-- Submit button -->
+                <div class="row mb-4">
+                <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+                </div>
+                <!-- Register buttons -->
+                <div class="text-center">
+                  <p>Not a member? <a href="#!">Register</a></p>
+                  <p>Or sign up with:</p>
+                
+              
+                 
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fa-brands fa-google"></i>
+                  </button>
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fa-brands fa-square-facebook"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+        
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+        </div>
+
+        </body>
+</html>

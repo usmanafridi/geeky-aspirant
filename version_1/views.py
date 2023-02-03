@@ -154,6 +154,10 @@ def outline(request):
         else:
             text= text
             text_response = gpt3(f"Write an outline of {text},  ", tokens=200)
+        
+        ## Here, we can add more functionality in the premium package as we can increase number of Tokens to make it more detailed.
+        
+        
         #The context will return the text response
         #By specifying the name of the context in the html, it will display the results.
         context = {           
