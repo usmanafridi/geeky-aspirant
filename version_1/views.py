@@ -142,13 +142,13 @@ def index(request):
     return render(request, 'index_2.html')
 
 
-@ratelimit(key='ip', rate='2/d')
+@ratelimit(key='ip', rate='5/d')
 def outline(request):
     """This function is to create outline of a text provided by the user"""
     
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write (Here the "text" is the name of the form in html )
-        if len(text) >= 50:
+        if len(text) >= 200:
             text = "Access limit has been reached. Please reduce words. The max number of words are ...."
             text_response= ''
         else:
@@ -163,7 +163,7 @@ def outline(request):
         return render(request, 'outline.html', context)
     return render(request, 'outline.html')
 
-@ratelimit(key='ip', rate='70/d')
+@ratelimit(key='ip', rate='50/d')
 def grammar_correction(request):
     """This function is to correct any grammatical mistake in a sentence"""
     if request.method == 'POST':
@@ -185,7 +185,7 @@ def grammar_correction(request):
         return render(request, 'grammar.html', context)
     return render(request, 'grammar.html')
 
-@ratelimit(key='ip', rate='3/d')
+@ratelimit(key='ip', rate='5/d')
 def text_summarizer(request):
     """This function is to make a short summary of a text"""
     if request.method == 'POST':
@@ -207,7 +207,7 @@ def text_summarizer(request):
     return render(request, 'summary.html')
 
 
-@ratelimit(key='ip', rate='3/d')
+@ratelimit(key='ip', rate='5/d')
 def text_paraphraser(request):
     """This function is to make a short paraphraser of a text"""
     if request.method == 'POST':
@@ -260,7 +260,7 @@ def word_mean_sentence(request):
         return render(request, 'sentences.html', context)
     return render(request, 'sentences.html')
 
-
+@ratelimit(key='ip', rate='5/d')
 def syn_anto(request):
     """This function is to generate the meaning of word, synonyms and antonyms"""
     if request.method == 'POST':
@@ -294,7 +294,7 @@ def syn_anto(request):
 
 
 ## In fill in the blanks, give prior examples so that the prompt can pick this up.
-
+@ratelimit(key='ip', rate='15/d')
 def fill_the_blank(request):
     """This function is to return words in the blanks provided in the sentence."""
     if request.method == 'POST':
@@ -303,6 +303,7 @@ def fill_the_blank(request):
             text= "The text contains too many words"
             blank_answers=None
             print(text)
+        
         else:
             text=text
             print(text)
@@ -383,7 +384,7 @@ def fill_the_blank(request):
     
 
 
-
+@ratelimit(key='ip', rate='15/d')
 def comprehension(request):
 
     
@@ -467,7 +468,7 @@ def rate_limit_reached(request, exception):
   ## The updated one, I have included to incude fill in the blanks, the above when is for questions.
   ## But a great care must be taken in the Prompt selection, as everything depends on that.
 
-@ratelimit(key='ip', rate='3/d')
+@ratelimit(key='ip', rate='15/d')
 def punctuation(request):
 
     if request.method == 'POST': 
@@ -485,7 +486,7 @@ def punctuation(request):
 
 
 
-
+### NOT USED SO FAR.
 @ratelimit(key='ip', rate='100/m')
 def comprehension_updated(request):
 
@@ -510,7 +511,7 @@ def comprehension_updated(request):
     return render(request, 'comprehension.html')
 
 
-@ratelimit(key='ip', rate='5/m')   
+@ratelimit(key='ip', rate='20/d')   
 @login_required(redirect_field_name='speech')
 def speech_change(request):
 
