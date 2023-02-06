@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path("text-outline", views.outline, name="text_outline"),
-    # path("check", views.index),
+    path("check", views.check_bootstrap),
     path("grammar", views.grammar_correction, name="grammar"),
     path("summary", views.text_summarizer, name="summary"),
     path("sentence", views.word_mean_sentence, name="sentence"),

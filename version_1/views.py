@@ -103,7 +103,7 @@ def my_view_cache(request):
 
 def check_bootstrap(request):
     
-    return render(request, 'bootstrap_check.html')
+    return render(request, 'login_good.html')
 
 
 
