@@ -1,6 +1,7 @@
 
 {% extends "base.html" %}
 {% load i18n %}
+
 {% load account socialaccount %}
 {% load widget_tweaks %}
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
@@ -10,34 +11,15 @@
 
 <div class="container mx-auto p-y row d-flex justify-content-center align-items-center mt-5">
 
-<h1>{% trans "Sign In" %}</h1>
+
 
 {% get_providers as socialaccount_providers %}
 
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
-</div>
-
-{% include "socialaccount/snippets/login_extra.html" %}
-
-{% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
 
 
 <div class="col-lg-6 col-md-10 col-sm-12 mt-5 ">
+  <h1 style="text-align: center;">Sign In</h1>
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
   
@@ -46,7 +28,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
     
    
     {{ form.login|add_class:"form-control" }}
-    {{ form.login.label_tag }}
+    <label class="form-label" for="form2Example1">Username or Email</label>
   </div>
 
   <div class="form-outline mb-4">
@@ -60,7 +42,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
     <div class="col d-flex justify-content-center">
       <label class="form-check-label" for="form2Example31"> Remember me </label>
       {{ form.remember|add_class:"form-check-input" }}
-      {{ form.remember }}
+      
     </div>
     <div class="col">
       <a href="{% url 'account_reset_password' %}">Forgot password?</a>
@@ -71,16 +53,25 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
     <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
   </div>
 
+  {% if socialaccount_providers %}
+  
   <div class="text-center">
     <p>Not a member? <a href="{% url 'account_signup' %}">Register</a></p>
+    
+
+    
     <p>Or sign up with:</p>
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fa-brands fa-google"></i>
+    <button type="submit"  class="btn btn-link btn-floating mx-1">
+      
+      <!-- Google Icon Good. But compormise now. -->
+      <i class="fa-brands"> {% include "socialaccount/snippets/provider_list.html" with process="login" %}</i>  
+    
+    
+    
     </button>
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fa-brands fa-square-facebook"></i>
-    </button>
+    
   </div>
+  {% endif %}
 
 
   {% if redirect_field_value %}

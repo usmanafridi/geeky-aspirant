@@ -1,1 +1,8 @@
 Using django-widget-tweaks to customize Django forms with bootstrap. Helpful for inbuild Django Allauth package.
+Routing from one page to another section of the main page.
+Models develpment.
+Bootstrap integration.
+GPT-3 model integration.
+Django All Auth pacjkage, and their customization in html.
+Blog creation.
+
