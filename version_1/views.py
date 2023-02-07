@@ -388,7 +388,7 @@ def fill_the_blank(request):
     
 
 
-@ratelimit(key='ip', rate='15/d')
+@ratelimit(key='ip', rate='5/d')
 def comprehension(request):
 
     
@@ -421,25 +421,25 @@ def comprehension(request):
             if num_textboxes > 0 and num_textboxes <= 3:
                 question1= '1.' + request.POST['textbox1']
                 #return answers
-                answers= gpt3(f"Answer the questions from the following passage : {text}: + {question1} +\n\n " )
+                answers= gpt3(f"Answer the questions from \n\{text}.\ \nQuestions:\n \n{question1}\n\nAnswer:\n"  )
             
             elif num_textboxes > 3 and num_textboxes <= 4:
                 question1= '1.' + request.POST['textbox1']
                 question2= '2.' + request.POST['textbox2']
-                answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2}" )
+                answers= gpt3(f"Answer the questions from \n\{text}.\ \nQuestions:\n \n{question1}\n {question2}\nAnswer:\n" )
 
             elif num_textboxes > 4 and num_textboxes <= 5:
                 question1= '1.' + request.POST['textbox1']
                 question2= '2.' + request.POST['textbox2']
                 question3= '3.' + request.POST['textbox3']
-                answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3}" )
+                answers= gpt3(f"Answer the questions from \n\{text}.\ \nQuestions:\n \n{question1}\n {question2}\n {question3}\nAnswer:\n" )
 
             elif num_textboxes > 5 and num_textboxes <= 6:
                 question1= '1.' + request.POST['textbox1']
                 question2= '2.' + request.POST['textbox2']
                 question3= '3.' + request.POST['textbox3']
                 question4= '4.' + request.POST['textbox4']
-                answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3} + \n\n {question4}" )
+                answers= gpt3(f"Answer the questions from \n\{text}.\ \nQuestions:\n \n{question1}\n {question2}\n {question3}\n {question4}\nAnswer:\n" )
 
             elif num_textboxes > 6 and num_textboxes <= 7:
 
@@ -448,7 +448,7 @@ def comprehension(request):
                 question3= '3.' + request.POST['textbox3']
                 question4= '4.' + request.POST['textbox4']
                 question5= '5.' + request.POST['textbox5']
-                answers= gpt3(f"Answer the questions from the following passage : {text}: + \n\n {question1} + \n\n {question2} + \n\n {question3} + \n\n {question4}+ \n\n {question5}" )
+                answers= gpt3(f"Answer the questions from \n\{text}.\ \nQuestions:\n \n{question1}\n {question2}\n {question3}\n {question4}\n {question5}\nAnswer:\n" )
 
             else:
                 None

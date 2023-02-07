@@ -1,5 +1,7 @@
 ## IMPORTANT:
 
+BIG PRoblem in comprehension. Correct it before its too late
+
 When the rate limit is reached, direct the user to the wait list where he will be able to register for the application wait list (premium version)
 
 Limit the sentence to 1 by including the len() of the strings. SO that the user can put only one sentence at a time. Especially fill blnk, direct/ind) 
