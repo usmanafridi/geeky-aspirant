@@ -37,16 +37,18 @@
         <div class="container shadow-lg" >
         <div class="row">
           <div class="border-div col-lg-12">              
-              <button type="button" class="btn tab-btn border-0" disabled>Modes:</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Fluency</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Formal</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Simple</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Creative</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Expand</button>
-              <button type="button" class="btn tab-btn hvr-underline-from-center">Shorten</button> Synonyms:</button>
-              <input type="range" class="form-range" id="customRange1"><i class="bi bi-gem hira"></i>
-          </div>
+            <button type="button" class="btn tab-btn border-0" disabled>Modes:</button>
+            <!-- <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
+            <button type="button" class="btn tab-btn hvr-underline-from-center">Fluency</button>
+            <button type="button" class="btn tab-btn hvr-underline-from-center">Formal</button>
+            <button type="button" class="btn tab-btn hvr-underline-from-center">Simple</button>
+            <button type="button" class="btn tab-btn hvr-underline-from-center">Creative</button> -->
+            <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
+            <button type="button" class="btn tab-btn hvr-underline-from-center">Advance</button>
+            <button type="button" class="btn tab-btn border-0" disabled>Outline Words:</button>
+            <input type="range" class="form-range" min="0" max="200" name="vol" value="50" id="myRange" oninput="updateValue()">
+              <span id="rangeValue">50</span><i class="bi bi-gem hira"></i>
+        </div>
           
           <div class="col-lg-6 content m-0 p-0">
               <textarea class="textarea-1 p-2" name= "text" placeholder="For example: Relation between Pakistan and India">{{text}}</textarea>
@@ -68,6 +70,20 @@
     </main>
 
      
+<script>
+  
+      function updateValue() {
+        var range = document.getElementById("myRange");
+        var span = document.getElementById("rangeValue");
+        span.innerHTML = range.value;
+      }
+     
+
+
+
+</script>
+
+
     <script>
       document.querySelectorAll('.textarea-1')[1].scrollIntoView()
       </script>  

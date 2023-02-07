@@ -148,12 +148,13 @@ def outline(request):
     
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write (Here the "text" is the name of the form in html )
+        words= int(request.POST['vol'])
         if len(text) >= 200:
             text = "Access limit has been reached. Please reduce words. The max number of words are ...."
             text_response= ''
         else:
             text= text
-            text_response = gpt3(f"Write an outline of {text},  ", tokens=200)
+            text_response = gpt3(f"Write an outline of {text},  ", tokens=words)
         
         ## Here, we can add more functionality in the premium package as we can increase number of Tokens to make it more detailed.
         
@@ -330,19 +331,11 @@ def fill_the_blank(request):
    
    
 #     if request.method == 'POST':
-        
 #         remaining= cache_counter(request, turns_remaing = 3 )
-
-        
-        
-        
 #         text = request.POST['text']  #The text we will write
-        
 #         vol = request.POST['vol']
 #         print(vol)
-        
 #         lang_type = request.POST.get('lang')
-
 #         if lang_type == 'Urdu':
 #             lang="Urdu" 
 #             ln="ur"
