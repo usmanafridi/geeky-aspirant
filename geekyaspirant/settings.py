@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "version_1",
     "users",
     "blog_posts",
+    'widget_tweaks',
 
     
   
