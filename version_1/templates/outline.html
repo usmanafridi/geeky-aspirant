@@ -54,7 +54,7 @@
               <textarea class="textarea-1 p-2" name= "text" placeholder="For example: Relation between Pakistan and India">{{text}}</textarea>
               
               <div class="col-lg-6 col-md-5 col-sm-12 parbtn-div">
-                <button class="btn bt-sm me-4 parbtn"style="">Generate Outline</button>
+                <button onclick="addPreloader()" class="btn bt-sm me-4 parbtn"style="">Generate Outline</button>
               </div>
           </div>
           <div class="col-lg-6 m-0 m-0 p-0 bordrbttm" >
@@ -84,8 +84,20 @@
 </script>
 
 
-    <script>
-      document.querySelectorAll('.textarea-1')[1].scrollIntoView()
-      </script>  
+<script>
+  function addPreloader() {
+    var preloader = document.createElement("div");
+    preloader.id = "preloader";
+    document.body.appendChild(preloader);
+    window.location.reload();
+  }
+
+  window.addEventListener("load", function() {
+    var preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.parentNode.removeChild(preloader);
+    }
+  });
+</script>
 
 {% endblock %}

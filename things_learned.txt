@@ -8,5 +8,5 @@ Blog creation.
 Applying condition in Django Template.
 Django Ratelimit module. Very important. Also routing to another page when rate limit reached.
 Customization in Bootstrap template.
-
+Adding Javascript to add some functionality.
 

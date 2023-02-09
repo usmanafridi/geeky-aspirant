@@ -471,7 +471,7 @@ def punctuation(request):
     if request.method == 'POST': 
         text = request.POST['text']  #The text we will write
         #return words in the blanks
-        answers= gpt3(f"Put in comma, semicolons, colons, dashes, hyphen, quotation marks, question mark, exclamation point,  and brackets where ever they are needed in the following sentences: \n\n{text}" )
+        answers= gpt3(f"Put in comma, semicolons, colons, dashes, hyphen, quotation marks, question mark, exclamation point, and brackets where ever they are needed in {text}\n" )
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "punctuation":answers,

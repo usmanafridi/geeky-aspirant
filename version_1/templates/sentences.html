@@ -39,7 +39,7 @@
                   </label>
               </div>
               <div class="col-lg-6 col-md-5 col-sm-12 parbtn-div">
-                <button class="btn bt-sm me-4 parbtn"style="">Paraphrase</button>
+                <button onclick="addPreloader()" class="btn bt-sm me-4 parbtn"style="">Paraphrase</button>
               </div>
           </div>
           <div class="col-lg-6 m-0 p-2 bordrbttm" >
@@ -67,8 +67,25 @@
     </main>
 
      
-    <script>
+    <!-- <script>
       document.querySelectorAll('.textarea-1')[1].scrollIntoView()
-      </script>  
+      </script>   -->
+
+      <script>
+        function addPreloader() {
+          var preloader = document.createElement("div");
+          preloader.id = "preloader";
+          document.body.appendChild(preloader);
+          window.location.reload();
+        }
+      
+        window.addEventListener("load", function() {
+          var preloader = document.getElementById("preloader");
+          if (preloader) {
+            preloader.parentNode.removeChild(preloader);
+          }
+        });
+      </script>
+      
 
 {% endblock %}
