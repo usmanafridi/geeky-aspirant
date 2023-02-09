@@ -456,7 +456,7 @@ def comprehension(request):
 
 ## This function will be called when the rate limit is exceeded,
 def rate_limit_reached(request, exception):
-    return HttpResponse("Your rate limit has been reached")
+    return render(request, 'rate.html')
 
 
 ### The comprehension questions can be dealt in two ways. 
@@ -465,7 +465,7 @@ def rate_limit_reached(request, exception):
   ## The updated one, I have included to incude fill in the blanks, the above when is for questions.
   ## But a great care must be taken in the Prompt selection, as everything depends on that.
 
-@ratelimit(key='ip', rate='15/d')
+@ratelimit(key='ip', rate='2/m')
 def punctuation(request):
 
     if request.method == 'POST': 
