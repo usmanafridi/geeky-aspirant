@@ -87,7 +87,7 @@
     <div  style="margin-bottom: 50px; ">
       
       <div class="text-center" >
-      <button type="submit"  class="button_end" >Get Answers</button>
+      <button onclick="addPreloader()" type="submit"  class="button_end" >Get Answers</button>
       </div>
       <div>
       
@@ -130,6 +130,25 @@ function(){
     }
 });
 
+</script>
+
+
+<script>
+    
+    function addPreloader() {
+      var preloader = document.createElement("div");
+      preloader.id = "preloader";
+      document.body.appendChild(preloader);
+      window.location.reload();
+    }
+  
+    window.addEventListener("load", function() {
+      var preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.parentNode.removeChild(preloader);
+      }
+    });
+  
 </script>
 {% endblock %}
 
