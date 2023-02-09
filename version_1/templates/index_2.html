@@ -12,9 +12,17 @@
           <h2>This is to testify that we are working.</h2>
         </div>
       </div>
-      <div class="text-center">
-        <a href="{% url 'account_login' %}" class="btn-get-started scrollto">Get Started</a>
-      </div>
+      
+
+      {% if user.is_authenticated %}
+  
+    {% else %}
+    <div class="text-center">
+      <a href="{% url 'account_login' %}" class="btn-get-started scrollto">Get Started</a>
+    </div>
+     {% endif %}
+      
+    
 
       <div class="row icon-boxes">
      
