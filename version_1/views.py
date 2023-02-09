@@ -212,7 +212,7 @@ def text_summarizer(request):
     return render(request, 'summary.html')
 
 
-@ratelimit(key='ip', rate='5/d')
+@ratelimit(key='ip', rate='15/d')
 def text_paraphraser(request):
     """This function is to make a short paraphraser of a text"""
     if request.method == 'POST':
@@ -223,7 +223,7 @@ def text_paraphraser(request):
         else:
             text= text
         ##return summary
-            text_paraphrase= gpt3(f"Paraphrase of the following text \n\n + {text}")
+            text_paraphrase= gpt3(f"Paraphrase {text}\n")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
@@ -465,7 +465,7 @@ def rate_limit_reached(request, exception):
   ## The updated one, I have included to incude fill in the blanks, the above when is for questions.
   ## But a great care must be taken in the Prompt selection, as everything depends on that.
 
-@ratelimit(key='ip', rate='2/m')
+@ratelimit(key='ip', rate='20/d')
 def punctuation(request):
 
     if request.method == 'POST': 
