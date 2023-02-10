@@ -16,7 +16,9 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>FILL IN THE BLANKS</h2>
-          
+          {% if attempts_left %}
+          <p>You have {{ attempts_left }} attempts left to access this page.</p>
+            {% endif %}
         </div>
         <div class="d-flex justify-content-between align-items-center">
            
@@ -57,7 +59,7 @@
                   
               </div>
               <div class="col-lg-6 col-md-5 col-sm-12 parbtn-div">
-                <button onclick="addPreloader()" class="btn bt-sm me-4 parbtn"style="">Fill Blank</button>
+                <button id="loadPage" onclick="addPreloader()" class="btn bt-sm me-4 parbtn"style="">Fill Blank</button>
               </div>
           </div>
           <div class="col-lg-6 m-0 p-0 bordrbttm " >
@@ -95,6 +97,14 @@
       }
     });
   </script>
+
+
+<script>
+  document.getElementById("loadPage").addEventListener("click", function() {
+  window.location.href = "http://127.0.0.1:8000/fill";
+});
+
+</script>
 
 
 {% endblock %}

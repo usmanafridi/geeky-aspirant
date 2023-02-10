@@ -51,9 +51,9 @@
               {% endif %}>
             <i class="bi bi-gem hira"></i>
             <span class="super_script" id="pro-label" style="display:none;">(PRO USER)</span>
-            <span id="rangeValue">50</span><i class="bi bi-gem hira"></i>
+            <span id="rangeValue"></span><i class="bi bi-gem hira"></i>
         </div>
-          
+        
           <div class="col-lg-6 content m-0 p-0" >
               <textarea class="textarea-1 p-2" name= "text" placeholder="Input here QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase button.">{{text}}</textarea>
               
@@ -94,16 +94,12 @@
 
 
 <script>
-  
   function updateValue() {
     var range = document.getElementById("customRange1");
     var span = document.getElementById("rangeValue");
     span.innerHTML = range.value;
   }
  
-
-
-
 </script>
 
 

@@ -80,6 +80,12 @@ openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 ######################################################
 
+
+
+
+
+
+
 ## Helper function for Cache counter.
 def cache_counter(request, turns_remaing = 3 ):
     key = f"user:{request.user.id}"
@@ -297,10 +303,13 @@ def syn_anto(request):
 
 
 ## In fill in the blanks, give prior examples so that the prompt can pick this up.
-@ratelimit(key='ip', rate='15/d')
+@ratelimit(key='ip', rate='10/d')
 def fill_the_blank(request):
     """This function is to return words in the blanks provided in the sentence."""
+    remaining= cache_counter(request, turns_remaing = 5 )
+   
     if request.method == 'POST':
+        remaining= remaining+1
         text = request.POST['text']  #The text we will write
         if len(text)>= 100:
             text= "The text contains too many words"
@@ -311,69 +320,74 @@ def fill_the_blank(request):
             text=text
             print(text)
         #return words in the blanks
-            blank_answers= gpt3(f"Fill in the blank with appropriate word: \n{text}")
+            blank_answers= gpt3(f"Fill in the blank with appropriate word:{text}\n")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "blank_answers":blank_answers,
-        "text":text
+        "text":text,
+        'attempts_left': remaining,
+
     }
         return render(request, 'blanks.html', context)        
+    
+
+    
     return render(request, 'blanks.html')
 
-# @ratelimit(key='ip', rate='5/m')
-# def translate(request):
+@ratelimit(key='ip', rate='5/m')
+def translate(request):
 
-#     """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
-#     translation of GPT-3 is not that accurate, comparatively, that of Google is better. """
+    """This function is to translate the text provided to it. We will use Google translate API in this one. But one thing must be kept in mind that the 
+    translation of GPT-3 is not that accurate, comparatively, that of Google is better. """
    
    
-#     if request.method == 'POST':
-#         remaining= cache_counter(request, turns_remaing = 3 )
-#         text = request.POST['text']  #The text we will write
-#         vol = request.POST['vol']
-#         print(vol)
-#         lang_type = request.POST.get('lang')
-#         if lang_type == 'Urdu':
-#             lang="Urdu" 
-#             ln="ur"
+    if request.method == 'POST':
+        remaining= cache_counter(request, turns_remaing = 3 )
+        text = request.POST['text']  #The text we will write
+        vol = request.POST['vol']
+        print(remaining)
+        lang_type = request.POST.get('lang')
+        if lang_type == 'Urdu':
+            lang="Urdu" 
+            ln="ur"
                 
-#         elif lang_type == 'English':
-#             lang="English"
-#             ln="en" 
+        elif lang_type == 'English':
+            lang="English"
+            ln="en" 
 
-#         else:
-#             lang="Hindi"
-#             ln="hi"
+        else:
+            lang="Hindi"
+            ln="hi"
             
         
-#         #return the translation in Google.
-#         if len(text) > 150:
+        #return the translation in Google.
+        if len(text) > 150:
 
-#             translation= gpt3(f"Translate the following text in {lang}: \n\n {text} ")
-#             print("Translation using GPT-3")
+            translation= gpt3(f"Translate the following text in {lang}: \n\n {text} ")
+            print("Translation using GPT-3")
         
-#         else:
-#             translator = Translator()
-#             translations= translator.translate(text, dest= ln)
-#             translation= translations.text
-#         #By specifying the name of the context in the html, it will display the results.
-#             print("Translated using Googel api")
+        else:
+            translator = Translator()
+            translations= translator.translate(text, dest= ln)
+            translation= translations.text
+        #By specifying the name of the context in the html, it will display the results.
+            print("Translated using Googel api")
         
         
-#         context = {           
+        context = {           
         
-#         "translation":translation,
-#         "text":text,
-#         'attempts_left': remaining,
+        "translation":translation,
+        "text":text,
+        'attempts_left': remaining,
         
-#     }
-#         return render(request, 'translation.html', context)        
+    }
+        return render(request, 'translation.html', context)        
     
     
     
     
-#     return render(request, 'translation.html')
+    return render(request, 'translation.html')
     
     
     
