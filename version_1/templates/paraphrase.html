@@ -40,10 +40,18 @@
             <button type="button" class="btn tab-btn hvr-underline-from-center">Formal</button>
             <button type="button" class="btn tab-btn hvr-underline-from-center">Simple</button>
             <button type="button" class="btn tab-btn hvr-underline-from-center">Creative</button> -->
-            <button type="button" class="btn tab-btn hvr-underline-from-center">Standard</button>
-            <button type="button" class="btn tab-btn hvr-underline-from-center">Advance</button>
+            <button type="button" class="btn tab-btn hvr-underline-from-center ">Standard</button>
+            <button type="button" class="btn tab-btn hvr-underline-from-center">Advance<sup class="super_script">PRO</sup></button>
+            
             <button type="button" class="btn tab-btn border-0" disabled>Frequency:</button>
-            <input type="range" class="form-range" id="customRange1"><i class="bi bi-gem hira"></i>
+            <input type="range" class="form-range" id="customRange1" min="0" oninput="updateValue()"
+            {% if not user.is_authenticated %}
+              max="50"
+              {% else %} max="200" 
+              {% endif %}>
+            <i class="bi bi-gem hira"></i>
+            <span class="super_script" id="pro-label" style="display:none;">(PRO USER)</span>
+            <span id="rangeValue">50</span><i class="bi bi-gem hira"></i>
         </div>
           
           <div class="col-lg-6 content m-0 p-0" >
@@ -66,6 +74,7 @@
     </main>
    
     
+    
 
 <script>
   function addPreloader() {
@@ -81,6 +90,39 @@
       preloader.parentNode.removeChild(preloader);
     }
   });
+</script>
+
+
+<script>
+  
+  function updateValue() {
+    var range = document.getElementById("customRange1");
+    var span = document.getElementById("rangeValue");
+    span.innerHTML = range.value;
+  }
+ 
+
+
+
+</script>
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var range = document.getElementById("customRange1");
+  var label = document.getElementById("pro-label");
+
+  range.addEventListener("input", function() {
+    
+    if (range.value >= 50) {
+      label.style.display = "inline";
+    } else {
+      label.style.display = "none";
+    }
+  });
+});
 </script>
 
 {% endblock %}

@@ -88,9 +88,7 @@ def cache_counter(request, turns_remaing = 3 ):
         remaining = turns_remaing
     else:
         remaining -= 1
-        
     cache.set(key, remaining)
-    
     return remaining
 
 
@@ -471,7 +469,7 @@ def punctuation(request):
     if request.method == 'POST': 
         text = request.POST['text']  #The text we will write
         #return words in the blanks
-        answers= gpt3(f"Put in comma, semicolons, colons, dashes, hyphen, quotation marks, question mark, exclamation point, and brackets where ever they are needed in {text}\n" )
+        answers= gpt3(f"Put in comma, semicolons, colons, dashes, hyphen, quotation marks, question mark, exclamation point, and brackets where neede in {text}\n" )
         #By specifying the name of the context in the html, it will display the results.
         context = {           
         "punctuation":answers,
