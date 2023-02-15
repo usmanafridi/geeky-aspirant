@@ -18,7 +18,7 @@ SECRET_KEY = "django-insecure-hm7c(4qylzkpuqtb*)zv#_%1p!p2c0-$oise$)u#&z5z&7b4v&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.geekyaspirant.com']
 
 
 # Application definition
@@ -35,8 +35,8 @@ INSTALLED_APPS = [
     "blog_posts",
     'widget_tweaks',
 
-    
-  
+
+
     'django.contrib.sites', # must
     'allauth', # must
     'allauth.account', # must
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-  
+
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'django_ratelimit.middleware.RatelimitMiddleware',
@@ -117,6 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_ROOT = "/home/usmanafridi121/gpt-3-website"
 STATIC_URL = "/static/"
 
 # Default primary key field type
