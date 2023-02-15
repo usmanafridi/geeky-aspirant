@@ -199,13 +199,14 @@ def text_summarizer(request):
     """This function is to make a short summary of a text"""
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
+        words = request.POST['vol']
         if len(text) >= 2500:
             text = "Access limit has been reached. Please reduce words. The max number of words are ...."
             text_summary= None
         else:
             text= text
         ##return summary
-            text_summary= gpt3(f"Write precis of the following passage and a suitable title in the end\n\n + {text}")
+            text_summary= gpt3(f"Write a title and precis of {words} words of {text}:\n")
         
         #By specifying the name of the context in the html, it will display the results.
         context = {           
@@ -249,20 +250,18 @@ def word_mean_sentence(request):
         
         
         
-        word_meaning= gpt3(f"Write the meaning of {text} in English\n\n")
+        
         #return sentence
-        word_sentence= gpt3(f"Use {text} in a sentence")
+        word_sentence= gpt3(f"Use {text} in a sentence:\n", tokens=50)
 
         
         
         
         
-        translated_text= translator = Translator()
-        translations= translator.translate(text, dest= ln)
-        translation= translations.text
+        
         #By specifying the name of the context in the html, it will display the results.
         context = {           
-        "word_meaning": word_meaning,
+        
         "word_sentence": word_sentence,
         "text":text
     }       
@@ -274,6 +273,18 @@ def syn_anto(request):
     """This function is to generate the meaning of word, synonyms and antonyms"""
     if request.method == 'POST':
         text = request.POST['text']  #The text we will write
+        option= request.POST['speech']
+        
+        if option == 'synonym':
+            speech="synonym" 
+            
+
+        else:
+            speech="antonym" 
+           
+       
+        
+        
         if len(text)>= 100:
             text= "The text contains too many words"
             word_meaning=None
@@ -284,17 +295,14 @@ def syn_anto(request):
             text=text
             print(text)
         #return meaning
-            word_meaning= gpt3(f"Write the meaning of {text} \n\n")
-            #return syn
-            word_synonym= gpt3(f"Write at least three synonyms of {text} \n\n")
-            #return ant
-            word_antonym= gpt3(f"Write at least three antonyms of {text}\n\n ")
-        
+            
+            speech_change= gpt3(f"Write {speech} of {text} :\n")
+            
+            
         #By specifying the name of the context in the html, it will display the results.
         context = {           
-        "word_synonym": word_synonym,
-        "word_antonym": word_antonym,
-        "word_meaning":word_meaning,
+        "speech_change": speech_change,
+        
         "text":text
     }
         return render(request, 'synonym.html', context)        
