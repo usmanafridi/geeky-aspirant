@@ -52,24 +52,24 @@ Originally designed as a **SaaS platform**, Geeky Aspirant has now been **open-s
 
 To set up **Geeky Aspirant** on your local machine, follow these steps:  
 
-# 1️⃣ Clone the Repository
+## 1️⃣ Clone the Repository
 git clone https://github.com/usmanafridi/geeky-aspirant.git  
 cd geeky-aspirant  
 
-# 2️⃣ Install Dependencies
+## 2️⃣ Install Dependencies
 pip install -r requirements.txt  
 
-# 3️⃣ Apply Database Migrations
+## 3️⃣ Apply Database Migrations
 python manage.py migrate  
 
-# 4️⃣ Set Up Environment Variables
-# Create a .env file in the project root and configure your OpenAI API key
+## 4️⃣ Set Up Environment Variables
+## Create a .env file in the project root and configure your OpenAI API key
 echo "OPENAI_API_KEY=your-api-key-here" > .env  
 
-# 5️⃣ Run the Development Server
+## 5️⃣ Run the Development Server
 python manage.py runserver  
 
-# The app will be accessible at http://127.0.0.1:8000/. Now, you're all set to explore Geeky Aspirant! 🚀
+## The app will be accessible at http://127.0.0.1:8000/. Now, you're all set to explore Geeky Aspirant! 🚀
 
 
 
